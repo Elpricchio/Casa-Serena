@@ -15,8 +15,8 @@ import { quote, priceForNight, minNightsFor } from './pricing.js';
   const EN = {
     'nav.house': 'The house', 'nav.photos': 'Photos', 'nav.reviews': 'Reviews', 'nav.area': 'Area', 'nav.book': 'Availability',
     'hero.eyebrow': 'Calpe · Costa Blanca · Spain',
-    'hero.title': 'Sun, sea and calm in <em>Calpe</em>',
-    'hero.lead': 'A beautifully styled holiday home for families and anyone looking for peace and quiet, with a sunny roof terrace, mountain views and a pool. The beaches and the Peñón de Ifach are a six-minute drive away.',
+    'hero.title': 'Your sunny home on the <em>Costa Blanca</em>',
+    'hero.lead': 'Wake up to mountain views, have breakfast on your own sun terrace and be on the beach below the Peñón de Ifach within six minutes. Casa Serena has been lovingly furnished for six guests, with a pool, three bedrooms and two bathrooms.',
     'fact.guests': 'guests', 'fact.bedrooms': 'bedrooms', 'fact.bathrooms': 'bathrooms', 'fact.rating': 'on Airbnb', 'fact.booking': 'on Booking.com',
     'hero.cta': 'Check availability', 'hero.cta2': 'All photos',
     'hl1.t': 'Terrace with mountain views', 'hl1.p': 'Lounge set, string lights and sunshine all day on the first floor.',
@@ -60,13 +60,19 @@ import { quote, priceForNight, minNightsFor } from './pricing.js';
     'who2.t': 'Peace and quiet',
     'who2.p': 'Casa Serena is in a quiet residential area in the hills. The house is not meant for parties or groups looking for nightlife. We ask our guests to respect the peace of the neighbours.',
     'who3.t': 'Winter cycling',
-    'who3.p': 'From November to March, the Costa Blanca is Europe\'s training ground. Many professional teams hold their winter training camps here. Climbs like the Coll de Rates, the Cumbre del Sol and the Puerto de Bernia are close by, and temperatures are pleasant. Ideal for a cycling week with friends or a small team of up to six.',
+    'who3.p': 'From November to March, the Costa Blanca is Europe\'s training ground. Many professional teams hold their winter training camps here. Climbs like the Coll de Rates, the Cumbre del Sol and the Puerto de Bernia are close by, and temperatures are pleasant. Ideal for a cycling week with friends or a small team of up to six. Your bikes are stored safely inside the house.',
+    'hero.badge': 'Guest favourite',
+    'strip.1': 'Sun terrace with mountain views',
+    'strip.2': 'Swimming pool',
+    'strip.3': 'Bright living room',
+    'strip.4': 'King-size bedroom',
+    'am.g1.6': 'Secure indoor bike storage',
   };
   const ES = {
     'nav.house': 'La casa', 'nav.photos': 'Fotos', 'nav.reviews': 'Opiniones', 'nav.area': 'Entorno', 'nav.book': 'Disponibilidad',
     'hero.eyebrow': 'Calpe · Costa Blanca · España',
-    'hero.title': 'Sol, mar y calma en <em>Calpe</em>',
-    'hero.lead': 'Una casa vacacional con encanto para familias y para quien busca tranquilidad, con una soleada terraza, vistas a la montaña y piscina. Las playas y el Peñón de Ifach están a seis minutos en coche.',
+    'hero.title': 'Tu hogar soleado en la <em>Costa Blanca</em>',
+    'hero.lead': 'Despierta con vistas a la montaña, desayuna en tu propia terraza al sol y en seis minutos estarás en la playa a los pies del Peñón de Ifach. Casa Serena está decorada con mucho cariño para seis huéspedes, con piscina, tres dormitorios y dos baños.',
     'fact.guests': 'huéspedes', 'fact.bedrooms': 'dormitorios', 'fact.bathrooms': 'baños', 'fact.rating': 'en Airbnb', 'fact.booking': 'en Booking.com',
     'hero.cta': 'Ver disponibilidad', 'hero.cta2': 'Todas las fotos',
     'hl1.t': 'Terraza con vistas a la montaña', 'hl1.p': 'Conjunto lounge, guirnaldas de luces y sol todo el día en la primera planta.',
@@ -110,7 +116,13 @@ import { quote, priceForNight, minNightsFor } from './pricing.js';
     'who2.t': 'Calma y descanso',
     'who2.p': 'Casa Serena está en una zona residencial tranquila en las colinas. La casa no está pensada para fiestas ni para grupos que buscan salir de noche. Pedimos a nuestros huéspedes que respeten la tranquilidad de los vecinos.',
     'who3.t': 'Ciclismo en invierno',
-    'who3.p': 'De noviembre a marzo, la Costa Blanca es el terreno de entrenamiento de Europa. Muchos equipos profesionales celebran aquí sus concentraciones de invierno. Puertos como el Coll de Rates, la Cumbre del Sol y el Puerto de Bernia están muy cerca, y las temperaturas son agradables. Ideal para una semana de bici con amigos o un pequeño equipo de hasta seis personas.',
+    'who3.p': 'De noviembre a marzo, la Costa Blanca es el terreno de entrenamiento de Europa. Muchos equipos profesionales celebran aquí sus concentraciones de invierno. Puertos como el Coll de Rates, la Cumbre del Sol y el Puerto de Bernia están muy cerca, y las temperaturas son agradables. Ideal para una semana de bici con amigos o un pequeño equipo de hasta seis personas. Tus bicis quedan guardadas de forma segura dentro de la casa.',
+    'hero.badge': 'Favorito entre huéspedes',
+    'strip.1': 'Terraza soleada con vistas',
+    'strip.2': 'Piscina',
+    'strip.3': 'Salón luminoso',
+    'strip.4': 'Dormitorio king size',
+    'am.g1.6': 'Guardabicis seguro dentro de la casa',
   };
   const T = {
     nl: {
