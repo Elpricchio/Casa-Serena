@@ -386,21 +386,14 @@ input, select, textarea { border-radius: 14px; background: #fdfaf7; font-weight:
   .host-card { text-align: center; }
 }
 
-/* ---------- Lijsten van oud, gebleekt hout (foto: Unsplash) ---------- */
+/* ---------- Lijsten in zacht linnen-beige ---------- */
 .hv-photo {
-  padding: 14px 14px 40px;
-  background: #c9b8a2 url("https://images.unsplash.com/photo-1611600700192-d87eaeed4f81?auto=format&fit=crop&w=900&q=70") center / cover;
-  border-radius: 4px;
-  box-shadow:
-    inset 0 0 0 1px rgba(255, 250, 240, .35),
-    inset 0 3px 4px rgba(255, 250, 240, .35),
-    inset 0 -6px 10px rgba(70, 50, 30, .35),
-    0 18px 40px rgba(80, 55, 35, .3),
-    0 3px 6px rgba(80, 55, 35, .2);
+  padding: 10px 10px 36px;
+  background: #efe5d8;
+  border-radius: 14px;
+  box-shadow: 0 16px 40px rgba(120, 90, 70, .2), 0 2px 5px rgba(120, 90, 70, .12);
 }
-.hv-2 { background-position: 20% 30%; }
-.hv-3 { background-position: 80% 70%; }
-.hv-photo img { border-radius: 2px; box-shadow: 0 0 0 1px rgba(60, 40, 25, .45), 0 0 0 5px rgba(255, 248, 236, .25), 0 0 0 6px rgba(60, 40, 25, .25); }
-.hv-2 img { border-radius: 999px 999px 2px 2px; }
-.hv-photo span { color: #fff; text-shadow: 0 1px 3px rgba(40, 25, 14, .9), 0 0 10px rgba(40, 25, 14, .5); font-weight: 500; bottom: 11px; }
-@media (max-width: 460px) { .hv-photo { padding: 9px 9px 27px; } .hv-photo span { bottom: 6px; } }
+.hv-photo img { border-radius: 9px; box-shadow: none; }
+.hv-2 img { border-radius: 999px 999px 9px 9px; }
+.hv-photo span { color: #7a645a; text-shadow: none; font-weight: 400; bottom: 9px; }
+@media (max-width: 460px) { .hv-photo { padding: 6px 6px 24px; border-radius: 11px; } .hv-photo span { bottom: 5px; } }
