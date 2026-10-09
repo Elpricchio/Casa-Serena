@@ -66,7 +66,7 @@ Koop de domeinnaam (zie advies in de chat), dan in Cloudflare: project → **Cus
 
 ## Prijzen beheren
 
-Ga naar **/beheer** op je site (bijv. casa-serena-6qv.pages.dev/beheer) en log in met je beheerwachtwoord. Daar stel je in:
+Ga naar **/beheer** op je site (bijv. casaserenacalpe.com/beheer) en log in met je beheerwachtwoord. Daar stel je in:
 - prijs per nacht en minimaal aantal nachten per seizoen (okt–mei min. 3, jun–sep min. 5)
 - speciale periodes (Kerst, Pasen, aanbiedingen) met eigen prijs en minimum
 - eindschoonmaak (wordt bij de totaalprijs opgeteld) en borg (alleen ter info)

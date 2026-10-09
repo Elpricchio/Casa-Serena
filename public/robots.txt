@@ -1,2 +1,4 @@
 User-agent: *
 Disallow: /beheer/
+
+Sitemap: https://casaserenacalpe.com/sitemap.xml
