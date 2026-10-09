@@ -196,7 +196,6 @@ input:focus, select:focus, textarea:focus { outline: 2px solid var(--accent); ou
 @media (max-width: 460px) {
   .highlights, .amenities { grid-template-columns: 1fr; }
   .row { grid-template-columns: 1fr; }
-  .nav .btn-small { display: none; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
 
@@ -397,3 +396,13 @@ input, select, textarea { border-radius: 14px; background: #fdfaf7; font-weight:
 .hv-2 img { border-radius: 999px 999px 9px 9px; }
 .hv-photo span { color: #7a645a; text-shadow: none; font-weight: 400; bottom: 9px; }
 @media (max-width: 460px) { .hv-photo { padding: 6px 6px 24px; border-radius: 11px; } .hv-photo span { bottom: 5px; } }
+
+/* Telefoon: "Boek nu" blijft in de vaste balk bovenaan */
+@media (max-width: 600px) {
+  .nav { padding: .6rem 12px; gap: .5rem; background: rgba(251, 248, 244, .97); }
+  .brand { font-size: 1.35rem; }
+  .nav-right { gap: .45rem; }
+  .lang button { padding: .3em .5em; font-size: .7rem; }
+  .nav .btn-small { display: inline-flex; padding: .7em 1.05em; font-size: .66rem; letter-spacing: .12em; white-space: nowrap; }
+}
+@media (max-width: 360px) { .brand { font-size: 1.15rem; } .lang button { padding: .3em .4em; } }
