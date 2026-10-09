@@ -6,7 +6,7 @@ export async function onRequestGet({ env }) {
     const data = await loadBlockedRanges(env);
     return Response.json(
       { updated: new Date().toISOString(), ...data },
-      { headers: { 'Cache-Control': 'public, max-age=600' } }
+      { headers: { 'Cache-Control': 'public, max-age=120' } }
     );
   } catch (err) {
     return Response.json({ error: 'Kalender kon niet worden geladen' }, { status: 502 });

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow">
-  <title>Prijzen beheren · Casa Serena</title>
+  <title>Beheer · Casa Serena</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
@@ -20,6 +20,7 @@
     .tr select { padding: .7rem .35rem; }
     .actions > input { flex: 1 1 220px; width: auto; }
     .tr-special { grid-template-columns: 1.4fr 1.2fr 1.2fr .9fr .9fr auto; }
+    .tr-block { grid-template-columns: 1.2fr 1.2fr 1.6fr auto; }
     .tr label span { font-size: .68rem; }
     .del { background: none; border: 1px solid var(--line); color: var(--muted); border-radius: 10px; height: 44px; width: 44px; font-size: 1.2rem; cursor: pointer; }
     .del:hover { color: #c0392b; border-color: #c0392b; }
@@ -31,7 +32,7 @@
     .euro { position: relative; } .euro input { padding-left: 1.6rem; }
     .euro::before { content: '€'; position: absolute; left: .7rem; bottom: .72rem; color: var(--muted); }
     @media (max-width: 700px) {
-      .tr-season, .tr-special { grid-template-columns: 1fr 1fr; padding-bottom: .8rem; border-bottom: 1px solid var(--line); }
+      .tr-season, .tr-special, .tr-block { grid-template-columns: 1fr 1fr; padding-bottom: .8rem; border-bottom: 1px solid var(--line); }
       .tr .wide { grid-column: 1 / -1; }
     }
   </style>
@@ -39,7 +40,7 @@
 <body>
 <header class="nav">
   <a class="brand" href="/">Casa <em>Serena</em></a>
-  <span class="muted">Prijzen beheren</span>
+  <span class="muted">Beheer</span>
 </header>
 
 <main class="admin">
@@ -56,6 +57,17 @@
 
   <div id="editor" hidden>
     <div style="display:grid;gap:1.5rem">
+      <section class="panel">
+        <h2>Data dichtzetten</h2>
+        <p>Zet periodes dicht die nog niet via Airbnb of Booking.com in de kalender staan, bijvoorbeeld eigen gebruik, onderhoud of een directe boeking. Ze zijn direct dicht op de site. "Van" is de eerste nacht, "t/m" de laatste nacht.</p>
+        <div class="tbl" id="blocks"></div>
+        <div class="actions">
+          <button type="button" class="btn btn-ghost btn-small" id="addBlock">+ Periode dichtzetten</button>
+          <button type="button" class="btn btn-small" id="saveBlocks">Dichtgezette data opslaan</button>
+        </div>
+        <p class="msg" id="blockMsg" role="status"></p>
+      </section>
+
       <section class="panel">
         <h2>Seizoenen</h2>
         <p>Prijs per nacht en minimaal aantal nachten per seizoen. Het minimum geldt voor de aankomstdatum. Laat de prijs leeg voor "prijs op aanvraag".</p>
@@ -164,6 +176,7 @@
     cfg.seasons ||= []; cfg.specials ||= [];
     $('loginPanel').hidden = true; $('editor').hidden = false;
     render();
+    loadBlocks().catch(() => {});
   }
 
   $('loginForm').addEventListener('submit', async e => {
@@ -190,6 +203,49 @@
       $('saveMsg').textContent = 'Opgeslagen. De nieuwe prijzen staan direct op de site.'; $('saveMsg').className = 'msg ok';
     } catch (err) { $('saveMsg').textContent = err.message; $('saveMsg').className = 'msg err'; }
     finally { $('save').disabled = false; }
+  };
+
+
+  /* ---------- Data dichtzetten ---------- */
+  let blocks = [];
+  const addDay = (d, n) => { const x = new Date(d + 'T00:00:00Z'); x.setUTCDate(x.getUTCDate() + n); return x.toISOString().slice(0, 10); };
+  function renderBlocks() {
+    $('blocks').innerHTML = blocks.length ? blocks.map((b, i) => `
+      <div class="tr tr-block">
+        <label><span>Van (eerste nacht)</span><input class="b-from" type="date" value="${b.start || ''}"></label>
+        <label><span>T/m (laatste nacht)</span><input class="b-to" type="date" value="${b.end ? addDay(b.end, -1) : ''}"></label>
+        <label class="wide"><span>Notitie (alleen voor jou)</span><input class="b-note" value="${esc(b.note)}" placeholder="bijv. eigen gebruik"></label>
+        <button type="button" class="del" data-bdel="${i}" aria-label="Verwijderen">×</button>
+      </div>`).join('') : '<p class="muted" style="margin:0">Nog geen handmatig dichtgezette periodes.</p>';
+  }
+  function collectBlocks() {
+    blocks = [...document.querySelectorAll('.tr-block')].map(r => {
+      const from = r.querySelector('.b-from').value, to = r.querySelector('.b-to').value;
+      return { start: from, end: to ? addDay(to, 1) : '', note: r.querySelector('.b-note').value };
+    });
+  }
+  async function loadBlocks() {
+    const res = await fetch('/api/blocks', { headers: { Authorization: 'Bearer ' + pw }, cache: 'no-store' });
+    const out = await res.json().catch(() => ({}));
+    blocks = out.blocks || []; renderBlocks();
+  }
+  $('addBlock').onclick = () => { collectBlocks(); blocks.push({ start: '', end: '', note: '' }); renderBlocks(); };
+  $('blocks').addEventListener('click', e => {
+    const b = e.target.closest('[data-bdel]'); if (!b) return;
+    collectBlocks(); blocks.splice(+b.dataset.bdel, 1); renderBlocks();
+  });
+  $('saveBlocks').onclick = async () => {
+    collectBlocks();
+    if (blocks.some(b => !b.start || !b.end || b.end <= b.start)) { $('blockMsg').textContent = 'Vul bij elke periode een geldige van- en t/m-datum in.'; $('blockMsg').className = 'msg err'; return; }
+    $('saveBlocks').disabled = true; $('blockMsg').textContent = 'Opslaan…'; $('blockMsg').className = 'msg';
+    try {
+      const res = await fetch('/api/blocks', { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + pw }, body: JSON.stringify({ blocks }) });
+      const out = await res.json().catch(() => ({}));
+      if (!res.ok || !out.ok) throw new Error(out.error || 'Opslaan mislukt.');
+      blocks = out.blocks; renderBlocks();
+      $('blockMsg').textContent = 'Opgeslagen. Deze data zijn binnen enkele minuten dicht op de site.'; $('blockMsg').className = 'msg ok';
+    } catch (err) { $('blockMsg').textContent = err.message; $('blockMsg').className = 'msg err'; }
+    finally { $('saveBlocks').disabled = false; }
   };
 
   if (pw) api({ checkOnly: true }).then(open).catch(() => store.set('cs-admin', null));
