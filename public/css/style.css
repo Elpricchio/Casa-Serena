@@ -225,7 +225,7 @@ input:focus, select:focus, textarea:focus { outline: 2px solid var(--accent); ou
 
 /* ---------- Hero: foto van Calpe & de Peñón de Ifach ---------- */
 .hero { position: relative; min-height: min(88vh, 820px); display: flex; align-items: flex-end; overflow: hidden; background: #2b6f99; isolation: isolate; }
-.hero-bg { position: absolute; top: 0; left: -18%; width: 118%; height: 100%; object-fit: cover; object-position: 66% 62%; z-index: -2; filter: saturate(1.25) contrast(1.05) brightness(1.06); animation: heroZoom 18s ease-out both; }
+.hero-bg { position: absolute; top: 0; left: -47%; width: 140%; max-width: none; height: 100%; object-fit: cover; object-position: 50% 55%; z-index: -2; filter: saturate(1.25) contrast(1.05) brightness(1.06); animation: heroZoom 18s ease-out both; }
 .hero::after { content: ''; position: absolute; inset: 0; z-index: -1; background:
   linear-gradient(0deg, rgba(8, 30, 52, .7) 0%, rgba(8, 30, 52, .28) 38%, rgba(8, 30, 52, 0) 62%),
   linear-gradient(90deg, rgba(8, 30, 52, .38) 0%, rgba(8, 30, 52, .12) 45%, rgba(8, 30, 52, 0) 65%); }
@@ -294,6 +294,6 @@ input:focus, select:focus, textarea:focus { outline: 2px solid var(--accent); ou
   .collage { aspect-ratio: 1 / 1.02; max-width: 560px; width: 100%; justify-self: center; }
   .pc { padding: 5px 5px 24px; }
   .pc span { font-size: .78rem; bottom: 5px; }
-  .hero-bg { left: -30%; width: 130%; object-position: 70% 40%; }
+  .hero-bg { left: -25%; width: 125%; object-position: 60% 45%; }
 }
 @media (prefers-reduced-motion: reduce) { .pc { animation: none; } }
