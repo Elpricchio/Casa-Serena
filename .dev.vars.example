@@ -1,0 +1,5 @@
+ICAL_AIRBNB=https://www.airbnb.nl/calendar/ical/XXXXXXXX.ics?s=XXXXXXXX
+ICAL_BOOKING=https://ical.booking.com/v1/export?t=XXXXXXXX
+RESEND_API_KEY=re_XXXXXXXX
+OWNER_EMAIL=jouw@email.nl
+# FROM_EMAIL=Casa Serena <boeking@casaserenacalpe.com>

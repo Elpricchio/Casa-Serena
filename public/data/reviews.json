@@ -1,0 +1,31 @@
+{
+  "_uitleg": "Vul hieronder je echte reviews in (kopieer ze van Airbnb/Booking.com). Ze verschijnen dan automatisch op de site. Laat 'score' op null staan als je die niet wilt tonen.",
+  "platforms": [
+    {
+      "name": "Airbnb",
+      "score": 4.83,
+      "max": 5,
+      "count": 18,
+      "badge": "Favoriet van gasten",
+      "url": "https://www.airbnb.nl/rooms/1170760488935069985",
+      "categories": [
+        { "nl": "Netheid", "en": "Cleanliness", "score": 4.7 },
+        { "nl": "Nauwkeurigheid", "en": "Accuracy", "score": 4.9 },
+        { "nl": "Aankomst", "en": "Check-in", "score": 4.9 },
+        { "nl": "Communicatie", "en": "Communication", "score": 5.0 },
+        { "nl": "Locatie", "en": "Location", "score": 4.8 },
+        { "nl": "Prijs-kwaliteit", "en": "Value", "score": 4.8 }
+      ]
+    },
+    {
+      "name": "Booking.com",
+      "score": null,
+      "max": 10,
+      "count": null,
+      "badge": null,
+      "url": "https://www.booking.com/hotel/es/casa-sereno.nl.html",
+      "categories": []
+    }
+  ],
+  "reviews": []
+}
