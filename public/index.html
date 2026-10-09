@@ -174,7 +174,7 @@
     <div class="section-head">
       <p class="eyebrow" data-i18n="book.eyebrow">Beschikbaarheid</p>
       <h2 data-i18n="book.title">Kies je data en stuur een aanvraag</h2>
-      <p class="lead" data-i18n="book.lead">De kalender is gekoppeld aan Airbnb en Booking.com. Kies een aankomst- en vertrekdatum; je ontvangt binnen 24 uur een persoonlijk antwoord met de prijs.</p>
+      <p class="lead" data-i18n="book.lead">De kalender is gekoppeld aan Airbnb en Booking.com. Kies je data en je ziet direct de totaalprijs. Direct boeken is voordeliger dan via Airbnb of Booking.com, en je krijgt binnen 24 uur een persoonlijk antwoord.</p>
     </div>
 
     <div class="booking">
@@ -199,6 +199,7 @@
           <div><span class="lbl" data-i18n="form.nights">Nachten</span><output id="outNights">—</output></div>
         </div>
         <button type="button" class="link" id="clearDates" hidden data-i18n="form.clear">Data wissen</button>
+        <div class="price-box" id="priceBox" hidden aria-live="polite"></div>
 
         <div class="row">
           <label><span data-i18n="form.adults">Volwassenen</span>
@@ -273,6 +274,6 @@
   <button type="button" class="lb-nav lb-next" id="lbNext" aria-label="Volgende">›</button>
 </dialog>
 
-<script src="js/main.js" defer></script>
+<script type="module" src="js/main.js"></script>
 </body>
 </html>

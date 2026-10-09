@@ -1,0 +1,10 @@
+{
+  "currency": "EUR",
+  "cleaningFee": null,
+  "deposit": null,
+  "seasons": [
+    { "name": "Oktober t/m mei", "from": "10-01", "to": "05-31", "price": null, "minNights": 3 },
+    { "name": "Juni t/m september", "from": "06-01", "to": "09-30", "price": null, "minNights": 5 }
+  ],
+  "specials": []
+}

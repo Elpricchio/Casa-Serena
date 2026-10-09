@@ -1,4 +1,8 @@
 import { loadBlockedRanges, overlaps } from '../../lib/ical.js';
+import { loadPrices } from '../../lib/prices.js';
+import { quote } from '../../public/js/pricing.js';
+
+const eur = n => '€ ' + Number(n).toLocaleString('nl-NL', { minimumFractionDigits: 0, maximumFractionDigits: 2 });
 
 // POST /api/request  →  stuurt een boekingsverzoek per e-mail naar de eigenaar (via Resend)
 //
@@ -64,9 +68,16 @@ export async function onRequestPost({ request, env }) {
     // Kalender niet bereikbaar: verzoek toch doorsturen, de eigenaar controleert handmatig
   }
 
+  const prices = await loadPrices(env);
+  const q = quote(prices, checkIn, checkOut);
+  if (q.nights < q.minNights) return bad(`Voor deze periode is het minimaal ${q.minNights} nachten`);
+
   if (!env.RESEND_API_KEY || !env.OWNER_EMAIL) return bad('E-mail is nog niet ingesteld op de server', 500);
 
   const nights = nightsBetween(checkIn, checkOut);
+  const priceText = q.total !== null
+    ? `${eur(q.total)} (verblijf ${eur(q.lodging)}${q.cleaning ? ` + schoonmaak ${eur(q.cleaning)}` : ''})`
+    : 'Op aanvraag (nog geen prijs ingesteld voor deze data)';
   const rows = [
     ['Naam', name],
     ['E-mail', email],
@@ -76,6 +87,7 @@ export async function onRequestPost({ request, env }) {
     ['Nachten', nights],
     ['Volwassenen', adults],
     ['Kinderen', children],
+    ['Prijs getoond aan gast', priceText],
     ['Taal', lang.toUpperCase()],
   ];
   const html = `
@@ -104,14 +116,17 @@ export async function onRequestPost({ request, env }) {
     // Bevestiging naar de gast: alleen mogelijk met een eigen, geverifieerd afzenderdomein
     if (env.FROM_EMAIL) {
       const en = lang === 'en';
+      const priceLine = q.total !== null
+        ? (en ? `\nTotal price: ${eur(q.total)}${q.cleaning ? ' including final cleaning' : ''}.\n` : `\nTotaalprijs: ${eur(q.total)}${q.cleaning ? ', inclusief eindschoonmaak' : ''}.\n`)
+        : '';
       await sendMail(env, {
         from,
         to: [email],
         reply_to: env.OWNER_EMAIL,
         subject: en ? 'We received your request – Casa Serena, Calpe' : 'We hebben je aanvraag ontvangen – Casa Serena, Calpe',
         text: en
-          ? `Hi ${name},\n\nThank you for your interest in Casa Serena! We received your request for ${fmt(checkIn, 'en')} – ${fmt(checkOut, 'en')} (${nights} nights, ${adults + children} guests) and will get back to you as soon as possible, usually within 24 hours.\n\nThis is not yet a confirmed booking.\n\nWarm regards,\nJeanetta – Casa Serena`
-          : `Hoi ${name},\n\nBedankt voor je interesse in Casa Serena! We hebben je aanvraag voor ${fmt(checkIn, 'nl')} t/m ${fmt(checkOut, 'nl')} (${nights} nachten, ${adults + children} gasten) ontvangen en nemen zo snel mogelijk contact met je op, meestal binnen 24 uur.\n\nLet op: dit is nog geen definitieve boeking.\n\nHartelijke groet,\nJeanetta – Casa Serena`,
+          ? `Hi ${name},\n\nThank you for your interest in Casa Serena! We received your request for ${fmt(checkIn, 'en')} – ${fmt(checkOut, 'en')} (${nights} nights, ${adults + children} guests) and will get back to you as soon as possible, usually within 24 hours.\n${priceLine}\nThis is not yet a confirmed booking.\n\nWarm regards,\nJeanetta – Casa Serena`
+          : `Hoi ${name},\n\nBedankt voor je interesse in Casa Serena! We hebben je aanvraag voor ${fmt(checkIn, 'nl')} t/m ${fmt(checkOut, 'nl')} (${nights} nachten, ${adults + children} gasten) ontvangen en nemen zo snel mogelijk contact met je op, meestal binnen 24 uur.\n${priceLine}\nLet op: dit is nog geen definitieve boeking.\n\nHartelijke groet,\nJeanetta – Casa Serena`,
       }).catch(() => {});
     }
   } catch (err) {

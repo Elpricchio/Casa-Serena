@@ -1,11 +1,14 @@
-/* Casa Serena – site script: taal, galerij, reviews, beschikbaarheidskalender en boekingsformulier */
+/* Casa Serena – site script: taal, galerij, reviews, beschikbaarheidskalender, prijzen en boekingsformulier */
+import { quote, priceForNight, minNightsFor } from './pricing.js';
+
 (() => {
   const CONFIG = {
-    minNights: 1,          // minimaal aantal nachten (pas aan naar wens)
     maxMonthsAhead: 18,    // hoe ver vooruit gasten kunnen kijken
     availabilityUrl: '/api/availability',
     requestUrl: '/api/request',
     reviewsUrl: 'data/reviews.json',
+    pricesUrl: '/api/prices',
+    pricesFallbackUrl: 'data/prices.json',
   };
 
   /* ---------- Vertalingen (Nederlands staat in de HTML) ---------- */
@@ -35,7 +38,7 @@
     'am.g4': 'Relaxation', 'am.g4.1': 'TV in living room and games room', 'am.g4.2': 'PlayStation 4', 'am.g4.3': 'Board games', 'am.g4.4': 'Decorative fireplace',
     'rev.eyebrow': 'Reviews', 'rev.title': 'What our guests say', 'rev.lead': 'Ratings from guests who stayed with us via Airbnb and Booking.com.',
     'book.eyebrow': 'Availability', 'book.title': 'Pick your dates and send a request',
-    'book.lead': 'The calendar is synced with Airbnb and Booking.com. Choose an arrival and departure date; you will receive a personal reply with the price within 24 hours.',
+    'book.lead': 'The calendar is synced with Airbnb and Booking.com. Choose your dates to see the total price right away. Booking directly is cheaper than via Airbnb or Booking.com, and you will receive a personal reply within 24 hours.',
     'cal.free': 'Available', 'cal.busy': 'Booked', 'cal.sel': 'Your selection',
     'form.in': 'Arrival', 'form.out': 'Departure', 'form.nights': 'Nights', 'form.clear': 'Clear dates',
     'form.adults': 'Adults', 'form.children': 'Children', 'form.name': 'Name', 'form.email': 'Email', 'form.phone': 'Phone (optional)',
@@ -55,25 +58,29 @@
       months: 'nl-NL', loading: 'Beschikbaarheid laden…', updated: 'Live gekoppeld aan Airbnb en Booking.com',
       noSync: 'Live beschikbaarheid volgt binnenkort. Je kunt alvast een aanvraag sturen.',
       pickIn: 'Kies je aankomstdatum', pickOut: 'Kies je vertrekdatum',
-      minN: n => `Minimaal ${n} nachten`, blocked: 'Deze periode bevat bezette nachten',
+      minN: n => `In deze periode is het minimaal ${n} nachten`, blocked: 'Deze periode bevat bezette nachten',
       needDates: 'Kies eerst je aankomst- en vertrekdatum in de kalender.', needFields: 'Vul je naam en een geldig e-mailadres in.',
       tooMany: 'Maximaal 6 gasten.', sending: 'Versturen…',
       ok: 'Bedankt! Je aanvraag is verstuurd. Je hoort zo snel mogelijk van ons, meestal binnen 24 uur.',
       fail: 'Versturen is niet gelukt. Probeer het later opnieuw of boek via Airbnb of Booking.com.',
       readMore: 'Lees meer', readLess: 'Minder', via: 'via', viewOn: n => `Bekijk alle reviews op ${n} →`,
       reviews: c => `${c} reviews`, noScore: 'Lees de beoordelingen van onze gasten op dit platform.',
+      nightsX: (n, p) => `${n} ${n === 1 ? 'nacht' : 'nachten'}`, cleaning: 'Eindschoonmaak', total: 'Totaal',
+      onRequest: 'Prijs op aanvraag voor deze data', minHint: n => `min. ${n} nachten`, deposit: n => `Borg ${n}, je krijgt deze na vertrek terug`, direct: 'Voordeliger dan via Airbnb en Booking.com',
     },
     en: {
       months: 'en-GB', loading: 'Loading availability…', updated: 'Live synced with Airbnb and Booking.com',
       noSync: 'Live availability coming soon. You can already send a request.',
       pickIn: 'Choose your arrival date', pickOut: 'Choose your departure date',
-      minN: n => `Minimum ${n} nights`, blocked: 'This period contains booked nights',
+      minN: n => `Minimum stay in this period is ${n} nights`, blocked: 'This period contains booked nights',
       needDates: 'Please choose your arrival and departure date in the calendar first.', needFields: 'Please enter your name and a valid email address.',
       tooMany: 'Maximum 6 guests.', sending: 'Sending…',
       ok: 'Thank you! Your request has been sent. We will get back to you as soon as possible, usually within 24 hours.',
       fail: 'Sending failed. Please try again later or book via Airbnb or Booking.com.',
       readMore: 'Read more', readLess: 'Less', via: 'via', viewOn: n => `See all reviews on ${n} →`,
       reviews: c => `${c} reviews`, noScore: 'Read what our guests say on this platform.',
+      nightsX: (n, p) => `${n} ${n === 1 ? 'night' : 'nights'}`, cleaning: 'Final cleaning', total: 'Total',
+      onRequest: 'Price on request for these dates', minHint: n => `min. ${n} nights`, deposit: n => `Deposit ${n}, refunded after your stay`, direct: 'Cheaper than via Airbnb and Booking.com',
     },
   };
 
@@ -239,6 +246,15 @@
     })
     .catch(() => { syncState = 'none'; renderCalendar(); });
 
+  let prices = null;
+  const money = n => '€\u00a0' + Number(n).toLocaleString(lang === 'en' ? 'en-GB' : 'nl-NL', { maximumFractionDigits: 2 });
+  fetch(CONFIG.pricesUrl)
+    .then(r => (r.ok ? r.json() : Promise.reject()))
+    .catch(() => fetch(CONFIG.pricesFallbackUrl).then(r => r.json()))
+    .then(p => { prices = p; renderCalendar(); updateSummary(); })
+    .catch(() => {});
+  const minFor = d => (prices ? minNightsFor(prices, d) : 1);
+
   const rangeFree = (a, b) => { for (let x = a; x < b; x = addDays(x, 1)) if (busy.has(x)) return false; return true; };
 
   function renderCalendar() {
@@ -267,7 +283,9 @@
         if (s === start || s === end) cls.push('sel');
         else if (start && end && s > start && s < end) cls.push('in-range');
         const disabled = past || (isBusy && !canCheckout);
-        cells += `<button type="button" class="${cls.join(' ')}" data-d="${s}" ${disabled ? 'disabled' : ''} aria-label="${parse(s).toLocaleDateString(loc, { dateStyle: 'full' })}${isBusy ? ' (bezet)' : ''}">${day}</button>`;
+        const p = prices && !past && !isBusy ? priceForNight(prices, s) : null;
+        const tag = p !== null ? `<small>€${Math.round(p)}</small>` : '';
+        cells += `<button type="button" class="${cls.join(' ')}" data-d="${s}" ${disabled ? 'disabled' : ''} aria-label="${parse(s).toLocaleDateString(loc, { dateStyle: 'full' })}${isBusy ? ' (bezet)' : ''}${p !== null ? ` · ${money(p)}` : ''}"><span>${day}</span>${tag}</button>`;
       }
       html += `<div class="month"><h3>${title}</h3><div class="grid">${cells}</div></div>`;
     }
@@ -279,7 +297,7 @@
     document.getElementById('calNext').disabled = new Date(viewY, viewM, 1) >= lastView;
 
     let msg = syncState === 'loading' ? t().loading : syncState === 'live' ? t().updated : t().noSync;
-    if (syncState !== 'loading') msg = (!start || end) ? `${msg} · ${t().pickIn}` : t().pickOut;
+    if (syncState !== 'loading') msg = (!start || end) ? `${msg} · ${t().pickIn}` : `${t().pickOut} (${t().minHint(minFor(start))})`;
     statusEl.textContent = msg;
   }
 
@@ -291,7 +309,7 @@
       if (busy.has(d)) return;
       start = d; end = null;
     } else if (rangeFree(start, d)) {
-      if (nights(start, d) < CONFIG.minNights) { statusEl.textContent = t().minN(CONFIG.minNights); return; }
+      if (nights(start, d) < minFor(start)) { statusEl.textContent = t().minN(minFor(start)); return; }
       end = d;
     } else {
       statusEl.textContent = t().blocked; return;
@@ -310,6 +328,16 @@
     outOut.textContent = end ? f(end) : '—';
     outN.textContent = start && end ? nights(start, end) : '—';
     clearBtn.hidden = !start;
+    const box = document.getElementById('priceBox');
+    if (!start || !end || !prices) { box.hidden = true; return; }
+    const q = quote(prices, start, end);
+    box.hidden = false;
+    if (q.total === null) { box.innerHTML = `<p class="pb-note">${t().onRequest}</p>`; return; }
+    box.innerHTML = `
+      <div class="pb-row"><span>${t().nightsX(q.nights)}</span><span>${money(q.lodging)}</span></div>
+      ${q.cleaning ? `<div class="pb-row"><span>${t().cleaning}</span><span>${money(q.cleaning)}</span></div>` : ''}
+      <div class="pb-row pb-total"><span>${t().total}</span><span>${money(q.total)}</span></div>
+      <p class="pb-note">✓ ${t().direct}${q.deposit ? `<br>${t().deposit(money(q.deposit))}` : ''}</p>`;
   }
   clearBtn.onclick = () => { start = end = null; renderCalendar(); updateSummary(); };
 

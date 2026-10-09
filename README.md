@@ -64,6 +64,20 @@ Je ontvangt elk verzoek als e-mail. Klik op *Beantwoorden* om de gast direct te 
 
 Koop de domeinnaam (zie advies in de chat), dan in Cloudflare: project → **Custom domains → Set up a custom domain**. Volg de DNS-instructies; HTTPS wordt automatisch geregeld.
 
+## Prijzen beheren
+
+Ga naar **/beheer** op je site (bijv. casa-serena-6qv.pages.dev/beheer) en log in met je beheerwachtwoord. Daar stel je in:
+- prijs per nacht en minimaal aantal nachten per seizoen (okt–mei min. 3, jun–sep min. 5)
+- speciale periodes (Kerst, Pasen, aanbiedingen) met eigen prijs en minimum
+- eindschoonmaak (wordt bij de totaalprijs opgeteld) en borg (alleen ter info)
+
+Gasten zien de prijs per nacht in de kalender en de totaalprijs zodra ze data kiezen. De prijs staat ook in de e-mail met het boekingsverzoek.
+
+Eenmalig instellen in Cloudflare (project → Settings):
+1. **Bindings → Add → KV namespace**: variable name `PRICES`, maak een nieuwe namespace `casa-serena-prijzen`.
+2. **Variables and Secrets → Add**: `ADMIN_PASSWORD` (type Secret) = een wachtwoord dat je zelf kiest.
+3. Deployments → ⋯ → Retry deployment.
+
 ## Reviews toevoegen
 
 Airbnb en Booking.com bieden geen gratis koppeling om reviews automatisch op je eigen site te tonen. Kopieer daarom je mooiste reviews naar `public/data/reviews.json`:
