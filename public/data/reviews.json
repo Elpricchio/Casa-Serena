@@ -9,12 +9,42 @@
       "badge": "Favoriet van gasten",
       "url": "https://www.airbnb.nl/rooms/1170760488935069985",
       "categories": [
-        { "nl": "Netheid", "en": "Cleanliness", "score": 4.7 },
-        { "nl": "Nauwkeurigheid", "en": "Accuracy", "score": 4.9 },
-        { "nl": "Aankomst", "en": "Check-in", "score": 4.9 },
-        { "nl": "Communicatie", "en": "Communication", "score": 5.0 },
-        { "nl": "Locatie", "en": "Location", "score": 4.8 },
-        { "nl": "Prijs-kwaliteit", "en": "Value", "score": 4.8 }
+        {
+          "nl": "Netheid",
+          "en": "Cleanliness",
+          "score": 4.7,
+          "es": "Limpieza"
+        },
+        {
+          "nl": "Nauwkeurigheid",
+          "en": "Accuracy",
+          "score": 4.9,
+          "es": "Veracidad"
+        },
+        {
+          "nl": "Aankomst",
+          "en": "Check-in",
+          "score": 4.9,
+          "es": "Llegada"
+        },
+        {
+          "nl": "Communicatie",
+          "en": "Communication",
+          "score": 5.0,
+          "es": "Comunicación"
+        },
+        {
+          "nl": "Locatie",
+          "en": "Location",
+          "score": 4.8,
+          "es": "Ubicación"
+        },
+        {
+          "nl": "Prijs-kwaliteit",
+          "en": "Value",
+          "score": 4.8,
+          "es": "Calidad-precio"
+        }
       ]
     },
     {

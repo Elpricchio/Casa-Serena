@@ -150,7 +150,7 @@ p { margin: 0 0 1em; }
 .cal-nav { width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--line); background: var(--surface); color: var(--ink); font-size: 1.4rem; line-height: 1; cursor: pointer; }
 .cal-nav:disabled { opacity: .3; cursor: default; }
 .cal-months { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
-.month h3 { text-align: center; font-size: 1.1rem; margin-bottom: .8rem; text-transform: capitalize; }
+.month h3 { text-align: center; font-size: 1.1rem; margin-bottom: .8rem; }
 .grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 3px; }
 .dow { text-align: center; font-size: .72rem; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); padding-bottom: .3rem; }
 .day { aspect-ratio: 1; border: 0; background: none; border-radius: 8px; font: 500 .92rem var(--sans); color: var(--ink); cursor: pointer; position: relative; }

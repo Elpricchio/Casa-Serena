@@ -18,7 +18,7 @@ const MAX_GUESTS = 6;
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const isDate = s => /^\d{4}-\d{2}-\d{2}$/.test(s) && !isNaN(new Date(s + 'T00:00:00Z'));
 const nightsBetween = (a, b) => Math.round((new Date(b + 'T00:00:00Z') - new Date(a + 'T00:00:00Z')) / 86400000);
-const fmt = (d, lang) => new Date(d + 'T00:00:00Z').toLocaleDateString(lang === 'en' ? 'en-GB' : 'nl-NL', { weekday: 'short', day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
+const fmt = (d, lang) => new Date(d + 'T00:00:00Z').toLocaleDateString({ en: 'en-GB', es: 'es-ES' }[lang] || 'nl-NL', { weekday: 'short', day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
 
 function bad(message, status = 400) {
   return Response.json({ ok: false, error: message }, { status });
@@ -49,7 +49,7 @@ export async function onRequestPost({ request, env }) {
   const email = String(body.email || '').trim().slice(0, 200);
   const phone = String(body.phone || '').trim().slice(0, 50);
   const message = String(body.message || '').trim().slice(0, 3000);
-  const lang = body.lang === 'en' ? 'en' : 'nl';
+  const lang = ['en', 'es'].includes(body.lang) ? body.lang : 'nl';
   const adults = parseInt(body.adults, 10) || 0;
   const children = parseInt(body.children, 10) || 0;
   const { checkIn, checkOut } = body;
@@ -115,18 +115,28 @@ export async function onRequestPost({ request, env }) {
 
     // Bevestiging naar de gast: alleen mogelijk met een eigen, geverifieerd afzenderdomein
     if (env.FROM_EMAIL) {
-      const en = lang === 'en';
-      const priceLine = q.total !== null
-        ? (en ? `\nTotal price: ${eur(q.total)}${q.cleaning ? ' including final cleaning' : ''}.\n` : `\nTotaalprijs: ${eur(q.total)}${q.cleaning ? ', inclusief eindschoonmaak' : ''}.\n`)
-        : '';
+      const tot = q.total !== null ? eur(q.total) : null;
+      const guests = adults + children;
+      const msgs = {
+        nl: {
+          subject: 'We hebben je aanvraag ontvangen – Casa Serena, Calpe',
+          text: `Hoi ${name},\n\nBedankt voor je interesse in Casa Serena! We hebben je aanvraag voor ${fmt(checkIn, 'nl')} t/m ${fmt(checkOut, 'nl')} (${nights} nachten, ${guests} gasten) ontvangen en nemen zo snel mogelijk contact met je op, meestal binnen 24 uur.\n${tot ? `\nTotaalprijs: ${tot}${q.cleaning ? ', inclusief eindschoonmaak' : ''}.\n` : ''}\nLet op: dit is nog geen definitieve boeking.\n\nHartelijke groet,\nJeanetta – Casa Serena`,
+        },
+        en: {
+          subject: 'We received your request – Casa Serena, Calpe',
+          text: `Hi ${name},\n\nThank you for your interest in Casa Serena! We received your request for ${fmt(checkIn, 'en')} – ${fmt(checkOut, 'en')} (${nights} nights, ${guests} guests) and will get back to you as soon as possible, usually within 24 hours.\n${tot ? `\nTotal price: ${tot}${q.cleaning ? ' including final cleaning' : ''}.\n` : ''}\nThis is not yet a confirmed booking.\n\nWarm regards,\nJeanetta – Casa Serena`,
+        },
+        es: {
+          subject: 'Hemos recibido tu solicitud – Casa Serena, Calpe',
+          text: `Hola ${name}:\n\n¡Gracias por tu interés en Casa Serena! Hemos recibido tu solicitud del ${fmt(checkIn, 'es')} al ${fmt(checkOut, 'es')} (${nights} noches, ${guests} huéspedes) y te responderemos lo antes posible, normalmente en menos de 24 horas.\n${tot ? `\nPrecio total: ${tot}${q.cleaning ? ', limpieza final incluida' : ''}.\n` : ''}\nTen en cuenta que todavía no es una reserva confirmada.\n\nUn cordial saludo,\nJeanetta – Casa Serena`,
+        },
+      }[lang];
       await sendMail(env, {
         from,
         to: [email],
         reply_to: env.OWNER_EMAIL,
-        subject: en ? 'We received your request – Casa Serena, Calpe' : 'We hebben je aanvraag ontvangen – Casa Serena, Calpe',
-        text: en
-          ? `Hi ${name},\n\nThank you for your interest in Casa Serena! We received your request for ${fmt(checkIn, 'en')} – ${fmt(checkOut, 'en')} (${nights} nights, ${adults + children} guests) and will get back to you as soon as possible, usually within 24 hours.\n${priceLine}\nThis is not yet a confirmed booking.\n\nWarm regards,\nJeanetta – Casa Serena`
-          : `Hoi ${name},\n\nBedankt voor je interesse in Casa Serena! We hebben je aanvraag voor ${fmt(checkIn, 'nl')} t/m ${fmt(checkOut, 'nl')} (${nights} nachten, ${adults + children} gasten) ontvangen en nemen zo snel mogelijk contact met je op, meestal binnen 24 uur.\n${priceLine}\nLet op: dit is nog geen definitieve boeking.\n\nHartelijke groet,\nJeanetta – Casa Serena`,
+        subject: msgs.subject,
+        text: msgs.text,
       }).catch(() => {});
     }
   } catch (err) {

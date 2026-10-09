@@ -53,6 +53,47 @@ import { quote, priceForNight, minNightsFor } from './pricing.js';
     'host.p': 'I live in Amersfoort (the Netherlands) and love sharing Casa Serena with guests. On Airbnb I score 5.0 for communication and usually reply within an hour. Any questions? Just send a message through the form.',
     'foot.reg': 'Tourist registration Comunitat Valenciana', 'foot.nat': 'National registration number',
   };
+  const ES = {
+    'nav.house': 'La casa', 'nav.photos': 'Fotos', 'nav.reviews': 'Opiniones', 'nav.area': 'Entorno', 'nav.book': 'Disponibilidad',
+    'hero.eyebrow': 'Calpe · Costa Blanca · España',
+    'hero.title': 'Calma, luz y vistas a la montaña, a seis minutos del mar',
+    'hero.lead': 'Una casa decorada con mucho cariño para hasta seis huéspedes, con una soleada terraza, piscina comunitaria y todas las comodidades para unas vacaciones tranquilas.',
+    'fact.guests': 'huéspedes', 'fact.bedrooms': 'dormitorios', 'fact.bathrooms': 'baños', 'fact.rating': 'en Airbnb',
+    'hero.cta': 'Ver disponibilidad', 'hero.cta2': 'Todas las fotos',
+    'hl1.t': 'Terraza con vistas a la montaña', 'hl1.p': 'Conjunto lounge, guirnaldas de luces y sol todo el día en la primera planta.',
+    'hl2.t': 'Piscina', 'hl2.p': 'Solo para residentes del complejo, con tumbonas y sombrilla (de temporada).',
+    'hl3.t': 'Playa a 6 minutos', 'hl3.p': 'Las playas y el centro de Calpe están a pocos minutos en coche.',
+    'hl4.t': 'Entrada autónoma', 'hl4.p': 'Llega a la hora que quieras gracias a la caja de llaves. Aparcamiento gratuito en la puerta.',
+    'house.eyebrow': 'La casa', 'house.title': 'Tres plantas llenas de luz y materiales naturales',
+    'house.lead': 'Ratán, lino, madera y cálidos tonos tierra: Casa Serena está decorada con mimo para que de verdad puedas desconectar. Hay espacio para estar juntos y también para retirarse un rato.',
+    'f1.t': 'Planta baja', 'f1.p': 'Acogedor salón con chimenea decorativa, TV y balcón con vistas. Mesa redonda para cuatro, una cocina moderna y dos dormitorios con baño.',
+    'f1.l1': 'Dormitorio con cama de matrimonio', 'f1.l2': 'Dormitorio con dos camas individuales', 'f1.l3': 'Baño',
+    'f2.t': 'Primera planta', 'f2.p': 'La soleada terraza con conjunto lounge, guirnaldas de luces y amplias vistas a las montañas de Calpe. Ideal para desayunar al sol o tomar algo al atardecer.',
+    'f3.t': 'Planta inferior', 'f3.p': 'Un espacio propio para relajarse: el dormitorio principal con cama king size y ventilador de techo, un baño de lujo con ducha de lluvia a ras de suelo y una sala de juegos con sofá, TV, PlayStation y juegos de mesa.',
+    'f3.l1': 'Dormitorio con cama king size y zona de estar', 'f3.l2': 'Baño de lujo con ducha de lluvia', 'f3.l3': 'Sala de juegos',
+    'photos.eyebrow': 'Fotos', 'photos.title': 'Echa un vistazo',
+    'am.eyebrow': 'Equipamiento', 'am.title': 'Todo lo que necesitas',
+    'am.g1': 'Exterior', 'am.g1.1': 'Piscina comunitaria exterior (de temporada)', 'am.g1.2': 'Tumbonas con sombrilla', 'am.g1.3': 'Terraza con conjunto lounge', 'am.g1.4': 'Balcón con vistas a la montaña', 'am.g1.5': 'Aparcamiento gratuito en la propiedad',
+    'am.g2': 'Cocina', 'am.g2.1': 'Horno y microondas', 'am.g2.2': 'Placa de cocina y campana extractora', 'am.g2.3': 'Lavavajillas', 'am.g2.4': 'Cafetera y hervidor', 'am.g2.5': 'Mesa de comedor para cuatro',
+    'am.g3': 'Confort', 'am.g3.1': 'Wifi', 'am.g3.2': 'Aire acondicionado en el salón', 'am.g3.3': 'Ventilador de techo en el dormitorio principal', 'am.g3.4': 'Ropa de cama y toallas incluidas', 'am.g3.5': 'Entrada autónoma con caja de llaves',
+    'am.g4': 'Ocio', 'am.g4.1': 'TV en el salón y en la sala de juegos', 'am.g4.2': 'PlayStation 4', 'am.g4.3': 'Juegos de mesa', 'am.g4.4': 'Chimenea decorativa',
+    'rev.eyebrow': 'Opiniones', 'rev.title': 'Lo que dicen nuestros huéspedes', 'rev.lead': 'Valoraciones de huéspedes que se alojaron con nosotros a través de Airbnb y Booking.com.',
+    'book.eyebrow': 'Disponibilidad', 'book.title': 'Elige tus fechas y envía una solicitud',
+    'book.lead': 'El calendario está sincronizado con Airbnb y Booking.com. Elige tus fechas y verás al instante el precio total. Reservar directamente es más barato que a través de Airbnb o Booking.com, y recibirás una respuesta personal en menos de 24 horas.',
+    'cal.free': 'Disponible', 'cal.busy': 'Ocupado', 'cal.sel': 'Tu selección',
+    'form.in': 'Llegada', 'form.out': 'Salida', 'form.nights': 'Noches', 'form.clear': 'Borrar fechas',
+    'form.adults': 'Adultos', 'form.children': 'Niños', 'form.name': 'Nombre', 'form.email': 'Correo electrónico', 'form.phone': 'Teléfono (opcional)',
+    'form.msg': 'Mensaje (opcional)', 'form.msgph': 'Por ejemplo, tu hora prevista de llegada o preguntas sobre la casa',
+    'form.submit': 'Enviar solicitud de reserva',
+    'form.note': 'Una solicitud no es vinculante y todavía no es una reserva. ¿Prefieres reservar a través de una plataforma? Reserva en <a href="https://www.airbnb.es/rooms/1170760488935069985" target="_blank" rel="noopener">Airbnb</a> o <a href="https://www.booking.com/hotel/es/casa-sereno.es.html" target="_blank" rel="noopener">Booking.com</a>.',
+    'area.eyebrow': 'Entorno', 'area.title': 'Entre las montañas y el Mediterráneo',
+    'area.p1': 'Casa Serena se encuentra en una zona residencial tranquila y verde en las colinas de Calpe. De día contemplas las montañas; al atardecer ves cómo el sol se pone tras ellas.',
+    'area.p2': 'En seis minutos en coche llegas a las playas y al centro de Calpe, con el famoso Peñón de Ifach, el puerto con pescado fresco y animadas terrazas. Altea, Benissa y Moraira también están muy cerca. Se recomienda tener coche.',
+    'area.l1': 'Playas y centro de Calpe: aprox. 6 min en coche', 'area.l2': 'Aeropuerto de Alicante: aprox. 1 hora', 'area.l3': 'Aeropuerto de Valencia: aprox. 1,5 horas',
+    'host.eyebrow': 'Tu anfitriona',
+    'host.p': 'Vivo en Amersfoort (Países Bajos) y comparto Casa Serena con mucho gusto. En Airbnb tengo un 5,0 en comunicación y suelo responder en menos de una hora. ¿Tienes alguna pregunta? Escríbeme a través del formulario.',
+    'foot.reg': 'Registro turístico de la Comunitat Valenciana', 'foot.nat': 'Número de registro nacional',
+  };
   const T = {
     nl: {
       months: 'nl-NL', loading: 'Beschikbaarheid laden…', updated: 'Live gekoppeld aan Airbnb en Booking.com',
@@ -82,6 +123,20 @@ import { quote, priceForNight, minNightsFor } from './pricing.js';
       nightsX: (n, p) => `${n} ${n === 1 ? 'night' : 'nights'}`, cleaning: 'Final cleaning', total: 'Total',
       onRequest: 'Price on request for these dates', minHint: n => `min. ${n} nights`, deposit: n => `Deposit ${n}, refunded after your stay`, direct: 'Cheaper than via Airbnb and Booking.com',
     },
+    es: {
+      months: 'es-ES', loading: 'Cargando disponibilidad…', updated: 'Sincronizado en directo con Airbnb y Booking.com',
+      noSync: 'La disponibilidad en directo estará disponible pronto. Ya puedes enviar una solicitud.',
+      pickIn: 'Elige tu fecha de llegada', pickOut: 'Elige tu fecha de salida',
+      minN: n => `En este periodo la estancia mínima es de ${n} noches`, blocked: 'Este periodo incluye noches ocupadas',
+      needDates: 'Elige primero tus fechas de llegada y salida en el calendario.', needFields: 'Introduce tu nombre y un correo electrónico válido.',
+      tooMany: 'Máximo 6 huéspedes.', sending: 'Enviando…',
+      ok: '¡Gracias! Tu solicitud se ha enviado. Te responderemos lo antes posible, normalmente en menos de 24 horas.',
+      fail: 'No se ha podido enviar. Inténtalo más tarde o reserva a través de Airbnb o Booking.com.',
+      readMore: 'Leer más', readLess: 'Menos', via: 'vía', viewOn: n => `Ver todas las opiniones en ${n} →`,
+      reviews: c => `${c} opiniones`, noScore: 'Lee lo que opinan nuestros huéspedes en esta plataforma.',
+      nightsX: n => `${n} ${n === 1 ? 'noche' : 'noches'}`, cleaning: 'Limpieza final', total: 'Total',
+      onRequest: 'Precio a consultar para estas fechas', minHint: n => `mín. ${n} noches`, deposit: n => `Fianza ${n}, se devuelve tras tu estancia`, direct: 'Más barato que en Airbnb y Booking.com',
+    },
   };
 
   const NL = {};
@@ -93,16 +148,21 @@ import { quote, priceForNight, minNightsFor } from './pricing.js';
     get(k) { try { return localStorage.getItem(k); } catch { return null; } },
     set(k, v) { try { localStorage.setItem(k, v); } catch { /* opslag niet beschikbaar */ } },
   };
-  let lang = store.get('cs-lang') || ((navigator.language || 'nl').toLowerCase().startsWith('nl') ? 'nl' : 'en');
+  const LANGS = ['nl', 'en', 'es'];
+  const LOCALE = { nl: 'nl-NL', en: 'en-GB', es: 'es-ES' };
+  const DICT = { en: EN, es: ES };
+  const nav = (navigator.language || 'nl').toLowerCase().slice(0, 2);
+  let lang = store.get('cs-lang');
+  if (!LANGS.includes(lang)) lang = nav === 'nl' ? 'nl' : nav === 'es' ? 'es' : 'en';
   const t = () => T[lang];
 
   function applyLang() {
     document.documentElement.lang = lang;
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const k = el.dataset.i18n;
-      el.innerHTML = lang === 'en' && EN[k] ? EN[k] : NL[k];
+      el.innerHTML = (DICT[lang] && DICT[lang][k]) || NL[k];
     });
-    if (ph) ph.placeholder = lang === 'en' ? EN['form.msgph'] : NLph;
+    if (ph) ph.placeholder = (DICT[lang] && DICT[lang]['form.msgph']) || NLph;
     document.querySelectorAll('.lang button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.lang === lang)));
     renderGallery(); renderReviews(); renderCalendar(); updateSummary();
   }
@@ -136,7 +196,15 @@ import { quote, priceForNight, minNightsFor } from './pricing.js';
   const lbImg = document.getElementById('lbImg');
   const lbCap = document.getElementById('lbCap');
   let lbIndex = 0;
-  const cap = p => (lang === 'en' ? p[2] : p[1]);
+  const CAP_ES = {
+    'terras': 'Terraza con conjunto lounge y vistas a la montaña', 'woonkamer-uitzicht': 'Salón con balcón', 'zwembad': 'Piscina con vistas a la montaña',
+    'woonkamer': 'Salón y comedor', 'woonkamer-haard': 'Salón con chimenea decorativa', 'eettafel': 'Mesa de comedor para cuatro', 'keuken': 'Cocina',
+    'slaapkamer-master': 'Dormitorio principal con cama king size', 'slaapkamer-master-zithoek': 'Zona de estar en el dormitorio principal',
+    'badkamer': 'Baño con ducha de lluvia', 'slaapkamer-tweepersoons': 'Dormitorio con cama de matrimonio', 'slaapkamer-twin': 'Dormitorio con dos camas individuales',
+    'zithoek': 'Rincón de lectura', 'speelkamer': 'Sala de juegos con PlayStation y juegos', 'balkon-zonsondergang': 'Atardecer desde el balcón',
+    'ligbedden': 'Tumbonas junto a la piscina', 'voorgevel': 'La casa',
+  };
+  const cap = p => (lang === 'en' ? p[2] : lang === 'es' ? CAP_ES[p[0]] || p[2] : p[1]);
 
   function renderGallery() {
     gallery.innerHTML = PHOTOS.map((p, i) =>
@@ -175,7 +243,7 @@ import { quote, priceForNight, minNightsFor } from './pricing.js';
   /* ---------- Reviews ---------- */
   let reviewData = null;
   const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-  const num = (n, d = 2) => Number(n).toLocaleString(lang === 'en' ? 'en-GB' : 'nl-NL', { minimumFractionDigits: d, maximumFractionDigits: d });
+  const num = (n, d = 2) => Number(n).toLocaleString(LOCALE[lang], { minimumFractionDigits: d, maximumFractionDigits: d });
 
   fetch(CONFIG.reviewsUrl).then(r => r.json()).then(d => { reviewData = d; renderReviews(); }).catch(() => {});
 
@@ -184,10 +252,10 @@ import { quote, priceForNight, minNightsFor } from './pricing.js';
     document.getElementById('platforms').innerHTML = reviewData.platforms.map(p => {
       const hasScore = p.score != null;
       const cats = (p.categories || []).map(c => `
-        <div class="cat"><span>${esc(lang === 'en' ? c.en : c.nl)}</span>
+        <div class="cat"><span>${esc(c[lang] || c.en || c.nl)}</span>
         <span class="bar"><i style="width:${(c.score / p.max) * 100}%"></i></span><b>${num(c.score, 1)}</b></div>`).join('');
       return `<div class="platform">
-        <div class="platform-top"><span class="platform-name">${esc(p.name)}</span>${p.badge ? `<span class="badge">${lang === 'en' ? 'Guest favourite' : esc(p.badge)}</span>` : ''}</div>
+        <div class="platform-top"><span class="platform-name">${esc(p.name)}</span>${p.badge ? `<span class="badge">${lang === 'en' ? 'Guest favourite' : lang === 'es' ? 'Favorito entre huéspedes' : esc(p.badge)}</span>` : ''}</div>
         ${hasScore
           ? `<div class="score">${num(p.score, p.max === 10 ? 1 : 2)} <small>/ ${p.max}${p.count ? ` · ${t().reviews(p.count)}` : ''}</small></div>`
           : `<p style="color:var(--muted);margin:.6rem 0 1rem">${t().noScore}</p>`}
@@ -247,7 +315,7 @@ import { quote, priceForNight, minNightsFor } from './pricing.js';
     .catch(() => { syncState = 'none'; renderCalendar(); });
 
   let prices = null;
-  const money = n => '€\u00a0' + Number(n).toLocaleString(lang === 'en' ? 'en-GB' : 'nl-NL', { maximumFractionDigits: 2 });
+  const money = n => '€\u00a0' + Number(n).toLocaleString(LOCALE[lang], { maximumFractionDigits: 2 });
   fetch(CONFIG.pricesUrl)
     .then(r => (r.ok ? r.json() : Promise.reject()))
     .catch(() => fetch(CONFIG.pricesFallbackUrl).then(r => r.json()))
@@ -265,7 +333,8 @@ import { quote, priceForNight, minNightsFor } from './pricing.js';
     let html = '';
     for (let k = 0; k < count; k++) {
       const m = new Date(viewY, viewM + k, 1);
-      const title = m.toLocaleDateString(loc, { month: 'long', year: 'numeric' });
+      const t0 = m.toLocaleDateString(loc, { month: 'long', year: 'numeric' });
+      const title = t0.charAt(0).toUpperCase() + t0.slice(1);
       const offset = (m.getDay() + 6) % 7;  // maandag eerst
       const daysIn = new Date(m.getFullYear(), m.getMonth() + 1, 0).getDate();
       let cells = dows.map(d => `<div class="dow">${d}</div>`).join('');
