@@ -20,6 +20,7 @@
 <header class="nav" id="top">
   <a class="brand" href="#top">Casa <em>Serena</em></a>
   <nav class="nav-links" aria-label="Hoofdmenu">
+    <a href="#voor-wie" data-i18n="nav.who">Voor wie</a>
     <a href="#huis" data-i18n="nav.house">Het huis</a>
     <a href="#fotos" data-i18n="nav.photos">Foto's</a>
     <a href="#reviews" data-i18n="nav.reviews">Reviews</a>
@@ -36,19 +37,77 @@
 </header>
 
 <main>
-  <!-- HERO -->
+  <!-- HERO: illustratie van Calpe met de Peñón de Ifach -->
   <section class="hero">
-    <div class="hero-media">
-      <picture class="hero-main">
-        <img src="img/terras.webp" alt="Dakterras met loungeset en uitzicht op de bergen" fetchpriority="high">
-      </picture>
-      <picture class="hero-side hero-side-1"><img src="img/zwembad-sm.webp" alt="Zwembad met bergzicht" loading="eager"></picture>
-      <picture class="hero-side hero-side-2"><img src="img/woonkamer-uitzicht-sm.webp" alt="Lichte woonkamer met balkon" loading="eager"></picture>
-    </div>
-    <div class="hero-text">
+    <svg class="hero-art" viewBox="0 0 1600 900" preserveAspectRatio="xMaxYMax slice" aria-hidden="true">
+      <defs>
+        <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#78b4dc"/>
+          <stop offset=".45" stop-color="#b9dcec"/>
+          <stop offset=".72" stop-color="#f6e2c4"/>
+          <stop offset="1" stop-color="#f9cf9f"/>
+        </linearGradient>
+        <radialGradient id="sunglow" cx=".5" cy=".5" r=".5">
+          <stop offset="0" stop-color="#fff3cf" stop-opacity=".95"/>
+          <stop offset=".35" stop-color="#ffd98a" stop-opacity=".55"/>
+          <stop offset="1" stop-color="#ffd98a" stop-opacity="0"/>
+        </radialGradient>
+        <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#3f93c4"/>
+          <stop offset=".5" stop-color="#2a76ab"/>
+          <stop offset="1" stop-color="#1b5a8a"/>
+        </linearGradient>
+        <linearGradient id="rock" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0" stop-color="#d9b48c"/>
+          <stop offset=".62" stop-color="#c99d74"/>
+          <stop offset="1" stop-color="#9c6f4c"/>
+        </linearGradient>
+        <linearGradient id="glare" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#fff6dc" stop-opacity=".9"/>
+          <stop offset="1" stop-color="#fff6dc" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
+      <rect width="1600" height="900" fill="url(#sky)"/>
+      <!-- zon -->
+      <circle cx="1470" cy="170" r="200" fill="url(#sunglow)"/>
+      <circle cx="1470" cy="170" r="52" fill="#fff1c4"/>
+      <!-- verre bergen (Sierra de Bernia, Oltà) -->
+      <path d="M0 560 L120 508 L230 530 L360 462 L470 505 L560 478 L660 520 L760 494 L860 540 L980 560 L1600 560 L1600 660 L0 660 Z" fill="#b9b8c9" opacity=".7"/>
+      <path d="M0 600 L150 566 L300 588 L430 552 L560 580 L700 560 L840 592 L940 604 L0 640 Z" fill="#a8a4b4" opacity=".65"/>
+      <!-- stad aan de voet van de rots -->
+      <g fill="#fbf3e6">
+        <rect x="720" y="604" width="22" height="34"/><rect x="746" y="596" width="26" height="42"/><rect x="776" y="610" width="18" height="28"/>
+        <rect x="798" y="598" width="24" height="40"/><rect x="826" y="606" width="20" height="32"/><rect x="850" y="612" width="36" height="26"/>
+      </g>
+      <g fill="#e2d2bd"><rect x="742" y="604" width="4" height="34"/><rect x="794" y="610" width="4" height="28"/><rect x="822" y="598" width="4" height="40"/></g>
+      <!-- Peñón de Ifach -->
+      <path d="M880 640 C 930 626 970 604 1000 576 C 1030 546 1050 500 1072 446 C 1094 392 1122 330 1168 300 C 1214 272 1286 270 1330 300 C 1362 322 1380 362 1396 430 L 1432 566 C 1446 608 1470 630 1520 640 Z" fill="#d8c2a2"/>
+      <path d="M1330 300 C 1362 322 1380 362 1396 430 L 1432 566 C 1446 608 1470 630 1520 640 L 1420 640 C 1400 590 1388 520 1372 450 C 1360 396 1346 340 1318 304 Z" fill="#a98d6c"/>
+      <path d="M1168 300 C 1214 272 1286 270 1330 300 C 1300 290 1240 288 1196 306 C 1150 326 1120 370 1100 420 C 1110 370 1134 322 1168 300 Z" fill="#efdfc6"/>
+      <g stroke="#9a7e60" stroke-width="2" opacity=".45" fill="none">
+        <path d="M1352 360 L1362 470"/><path d="M1376 420 L1392 540"/><path d="M1340 330 L1346 400"/><path d="M1400 470 L1418 590"/>
+      </g>
+      <path d="M886 638 C 950 618 1000 590 1040 548 L1060 566 C 1020 606 960 632 910 640 Z" fill="#7e8a5a" opacity=".6"/>
+      <!-- zee -->
+      <rect y="636" width="1600" height="264" fill="url(#sea)"/>
+      <path d="M1340 640 L1440 640 L1520 900 L1260 900 Z" fill="url(#glare)" opacity=".55"/>
+      <g class="shimmer" stroke="#eaf6fb" stroke-linecap="round" opacity=".55">
+        <path d="M60 690 h120 M260 712 h70 M420 680 h160 M700 702 h90 M940 688 h140 M1180 716 h80 M1360 676 h120" stroke-width="3"/>
+        <path d="M120 760 h200 M480 782 h120 M760 754 h180 M1100 790 h150 M1370 744 h140" stroke-width="4"/>
+        <path d="M30 850 h240 M420 870 h180 M820 840 h260 M1240 868 h220" stroke-width="5"/>
+      </g>
+      <!-- zeilbootje -->
+      <g class="boat" transform="translate(560 700)">
+        <path d="M0 18 L46 18 L38 28 L8 28 Z" fill="#f7efe3"/>
+        <path d="M22 16 L22 -38 L46 14 Z" fill="#ffffff"/>
+        <path d="M20 16 L20 -26 L4 14 Z" fill="#f3e3cd"/>
+      </g>
+</svg>
+
+    <div class="hero-inner">
       <p class="eyebrow" data-i18n="hero.eyebrow">Calpe · Costa Blanca · Spanje</p>
-      <h1 data-i18n="hero.title">Rust, licht en bergzicht, zes minuten van de zee</h1>
-      <p class="lead" data-i18n="hero.lead">Een sfeervol ingericht huis voor maximaal zes gasten, met een zonnig dakterras, gedeeld zwembad en alle comfort voor een ontspannen vakantie.</p>
+      <h1 data-i18n="hero.title">Zon, zee en rust in <em>Calpe</em></h1>
+      <p class="lead" data-i18n="hero.lead">Een sfeervol vakantiehuis voor gezinnen en rustzoekers, met een zonnig dakterras, bergzicht en zwembad. De stranden en de Peñón de Ifach liggen op zes minuten rijden.</p>
       <ul class="facts">
         <li><strong>6</strong> <span data-i18n="fact.guests">gasten</span></li>
         <li><strong>3</strong> <span data-i18n="fact.bedrooms">slaapkamers</span></li>
@@ -58,9 +117,17 @@
       </ul>
       <div class="hero-cta">
         <a class="btn" href="#boeken" data-i18n="hero.cta">Bekijk beschikbaarheid</a>
-        <a class="btn btn-ghost" href="#fotos" data-i18n="hero.cta2">Alle foto's</a>
+        <a class="btn btn-light" href="#fotos" data-i18n="hero.cta2">Alle foto's</a>
       </div>
     </div>
+  </section>
+
+  <!-- Fotostrip die over de onderkant van de hero valt -->
+  <section class="hero-photos" aria-label="Foto's van het huis">
+    <a href="#fotos"><img src="img/terras-sm.webp" alt="Dakterras met loungeset en uitzicht op de bergen"></a>
+    <a href="#fotos"><img src="img/zwembad-sm.webp" alt="Zwembad met bergzicht"></a>
+    <a href="#fotos"><img src="img/woonkamer-uitzicht-sm.webp" alt="Lichte woonkamer met balkon"></a>
+    <a href="#fotos" class="hp-hide-sm"><img src="img/balkon-zonsondergang-sm.webp" alt="Zonsondergang vanaf het balkon"></a>
   </section>
 
   <!-- HIGHLIGHTS -->
@@ -69,6 +136,47 @@
     <div class="hl"><span class="hl-ico" aria-hidden="true">≈</span><h3 data-i18n="hl2.t">Zwembad</h3><p data-i18n="hl2.p">Alleen voor bewoners van het complex, met ligbedden en parasol (seizoensgebonden).</p></div>
     <div class="hl"><span class="hl-ico" aria-hidden="true">⛱</span><h3 data-i18n="hl3.t">Strand op 6 minuten</h3><p data-i18n="hl3.p">Mooie stranden en het centrum van Calpe liggen op korte rijafstand.</p></div>
     <div class="hl"><span class="hl-ico" aria-hidden="true">⌂</span><h3 data-i18n="hl4.t">Zelf inchecken</h3><p data-i18n="hl4.p">Flexibel aankomen met een sleutelkastje. Gratis parkeren voor de deur.</p></div>
+  </section>
+
+  <!-- VOOR WIE -->
+  <section class="section" id="voor-wie">
+    <div class="section-head">
+      <p class="eyebrow" data-i18n="who.eyebrow">Voor wie</p>
+      <h2 data-i18n="who.title">Gemaakt voor rust, gezinnen en sportieve winters</h2>
+    </div>
+    <div class="who">
+      <article class="who-card">
+        <img src="img/speelkamer-sm.webp" alt="Speelkamer met bank, tv en spellen" loading="lazy">
+        <div>
+          <h3 data-i18n="who1.t">Gezinsvakanties</h3>
+          <p data-i18n="who1.p">Ruimte voor zes, met drie slaapkamers, twee badkamers, een speelkamer met PlayStation en bordspellen, en het zwembad om de hoek. De kinderen vermaken zich, terwijl jij een boek leest op het terras.</p>
+        </div>
+      </article>
+      <article class="who-card">
+        <img src="img/balkon-zonsondergang-sm.webp" alt="Zonsondergang boven de bergen vanaf het balkon" loading="lazy">
+        <div>
+          <h3 data-i18n="who2.t">Rust en ontspanning</h3>
+          <p data-i18n="who2.p">Casa Serena ligt in een rustige woonwijk in de heuvels. Het huis is niet bedoeld voor feesten of groepen die komen om uit te gaan. We vragen onze gasten respect voor de rust van de buren.</p>
+        </div>
+      </article>
+      <article class="who-card who-bike">
+        <svg viewBox="0 0 400 300" aria-hidden="true" class="who-art">
+          <rect width="400" height="300" fill="#f6e2c4"/>
+          <circle cx="320" cy="70" r="34" fill="#ffd98a"/>
+          <path d="M0 210 L70 150 L130 180 L210 95 L280 150 L340 120 L400 160 L400 300 L0 300 Z" fill="#c99d74"/>
+          <path d="M0 240 C 80 200, 150 250, 230 215 S 360 230, 400 205 L400 300 L0 300 Z" fill="#7e8a5a"/>
+          <path d="M30 262 C 120 236, 200 268, 290 244 S 380 250, 400 240" stroke="#fbf3e6" stroke-width="5" fill="none" stroke-dasharray="14 10"/>
+          <g fill="none" stroke="#2b2622" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" transform="translate(150 150)">
+            <circle cx="20" cy="70" r="30"/><circle cx="120" cy="70" r="30"/>
+            <path d="M20 70 L55 20 L100 20 L120 70 M55 20 L70 70 L100 20 M50 10 L62 10 M100 20 L96 4 L110 2"/>
+          </g>
+        </svg>
+        <div>
+          <h3 data-i18n="who3.t">Wielrennen in de winter</h3>
+          <p data-i18n="who3.p">Van november tot en met maart is de Costa Blanca het trainingsgebied van Europa. Veel profploegen houden hier hun wintertrainingskamp. Klimmen als de Coll de Rates, de Cumbre del Sol en de Puerto de Bernia liggen om de hoek, en de temperaturen zijn aangenaam. Ideaal voor een fietsweek met vrienden of een kleine ploeg tot zes personen.</p>
+        </div>
+      </article>
+    </div>
   </section>
 
   <!-- HET HUIS -->
