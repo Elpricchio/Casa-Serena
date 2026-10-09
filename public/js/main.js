@@ -13,12 +13,12 @@ import { quote, priceForNight, minNightsFor } from './pricing.js';
 
   /* ---------- Vertalingen (Nederlands staat in de HTML) ---------- */
   const EN = {
-    'nav.house': 'The house', 'nav.photos': 'Photos', 'nav.reviews': 'Reviews', 'nav.area': 'Area', 'nav.book': 'Availability',
+    'nav.house': 'The house', 'nav.photos': 'Photos', 'nav.reviews': 'Reviews', 'nav.area': 'Area', 'nav.book': 'Book direct',
     'hero.eyebrow': 'Calpe · Costa Blanca · Spain',
     'hero.title': 'Your sunny home on the <em>Costa Blanca</em>',
     'hero.lead': 'Wake up to mountain views, have breakfast on your own sun terrace and be on the beach below the Peñón de Ifach within six minutes. Casa Serena has been lovingly furnished for six guests, with a pool, three bedrooms and two bathrooms.',
     'fact.guests': 'guests', 'fact.bedrooms': 'bedrooms', 'fact.bathrooms': 'bathrooms', 'fact.rating': 'on Airbnb', 'fact.booking': 'on Booking.com',
-    'hero.cta': 'Check availability', 'hero.cta2': 'All photos',
+    'hero.cta': 'Book direct', 'hero.cta2': 'All photos',
     'hl1.t': 'Terrace with mountain views', 'hl1.p': 'Lounge set, string lights and sunshine all day on the first floor.',
     'hl2.t': 'Swimming pool', 'hl2.p': 'For residents of the complex only, with sun loungers and parasol (seasonal).',
     'hl3.t': 'Beach in 6 minutes', 'hl3.p': 'Beautiful beaches and Calpe town centre are a short drive away.',
@@ -69,12 +69,12 @@ import { quote, priceForNight, minNightsFor } from './pricing.js';
     'am.g1.6': 'Secure indoor bike storage',
   };
   const ES = {
-    'nav.house': 'La casa', 'nav.photos': 'Fotos', 'nav.reviews': 'Opiniones', 'nav.area': 'Entorno', 'nav.book': 'Disponibilidad',
+    'nav.house': 'La casa', 'nav.photos': 'Fotos', 'nav.reviews': 'Opiniones', 'nav.area': 'Entorno', 'nav.book': 'Reserva directa',
     'hero.eyebrow': 'Calpe · Costa Blanca · España',
     'hero.title': 'Tu hogar soleado en la <em>Costa Blanca</em>',
     'hero.lead': 'Despierta con vistas a la montaña, desayuna en tu propia terraza al sol y en seis minutos estarás en la playa a los pies del Peñón de Ifach. Casa Serena está decorada con mucho cariño para seis huéspedes, con piscina, tres dormitorios y dos baños.',
     'fact.guests': 'huéspedes', 'fact.bedrooms': 'dormitorios', 'fact.bathrooms': 'baños', 'fact.rating': 'en Airbnb', 'fact.booking': 'en Booking.com',
-    'hero.cta': 'Ver disponibilidad', 'hero.cta2': 'Todas las fotos',
+    'hero.cta': 'Reserva directa', 'hero.cta2': 'Todas las fotos',
     'hl1.t': 'Terraza con vistas a la montaña', 'hl1.p': 'Conjunto lounge, guirnaldas de luces y sol todo el día en la primera planta.',
     'hl2.t': 'Piscina', 'hl2.p': 'Solo para residentes del complejo, con tumbonas y sombrilla (de temporada).',
     'hl3.t': 'Playa a 6 minutos', 'hl3.p': 'Las playas y el centro de Calpe están a pocos minutos en coche.',
