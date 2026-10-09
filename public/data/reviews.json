@@ -6,7 +6,11 @@
       "score": 4.83,
       "max": 5,
       "count": 18,
-      "badge": "Favoriet van gasten",
+      "badge": {
+        "nl": "Favoriet van gasten",
+        "en": "Guest favourite",
+        "es": "Favorito entre huéspedes"
+      },
       "url": "https://www.airbnb.nl/rooms/1170760488935069985",
       "categories": [
         {
@@ -49,12 +53,53 @@
     },
     {
       "name": "Booking.com",
-      "score": null,
+      "score": 9.8,
       "max": 10,
-      "count": null,
-      "badge": null,
+      "count": 25,
+      "badge": {
+        "nl": "Voortreffelijk",
+        "en": "Superb",
+        "es": "Fantástico"
+      },
       "url": "https://www.booking.com/hotel/es/casa-sereno.nl.html",
-      "categories": []
+      "categories": [
+        {
+          "nl": "Faciliteiten",
+          "en": "Facilities",
+          "es": "Instalaciones",
+          "score": 9.9
+        },
+        {
+          "nl": "Personeel",
+          "en": "Staff",
+          "es": "Personal",
+          "score": 9.9
+        },
+        {
+          "nl": "Hygiëne",
+          "en": "Cleanliness",
+          "es": "Limpieza",
+          "score": 9.8
+        },
+        {
+          "nl": "Comfort",
+          "en": "Comfort",
+          "es": "Confort",
+          "score": 9.8
+        },
+        {
+          "nl": "Prijs-kwaliteit",
+          "en": "Value for money",
+          "es": "Calidad-precio",
+          "score": 9.8
+        },
+        {
+          "nl": "Locatie",
+          "en": "Location",
+          "es": "Ubicación",
+          "score": 9.1
+        }
+      ]
     }
   ],
   "reviews": []

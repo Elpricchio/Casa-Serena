@@ -17,7 +17,7 @@ import { quote, priceForNight, minNightsFor } from './pricing.js';
     'hero.eyebrow': 'Calpe · Costa Blanca · Spain',
     'hero.title': 'Calm, light and mountain views, six minutes from the sea',
     'hero.lead': 'A beautifully styled holiday home for up to six guests, with a sunny roof terrace, shared pool and every comfort for a relaxed stay.',
-    'fact.guests': 'guests', 'fact.bedrooms': 'bedrooms', 'fact.bathrooms': 'bathrooms', 'fact.rating': 'on Airbnb',
+    'fact.guests': 'guests', 'fact.bedrooms': 'bedrooms', 'fact.bathrooms': 'bathrooms', 'fact.rating': 'on Airbnb', 'fact.booking': 'on Booking.com',
     'hero.cta': 'Check availability', 'hero.cta2': 'All photos',
     'hl1.t': 'Terrace with mountain views', 'hl1.p': 'Lounge set, string lights and sunshine all day on the first floor.',
     'hl2.t': 'Swimming pool', 'hl2.p': 'For residents of the complex only, with sun loungers and parasol (seasonal).',
@@ -58,7 +58,7 @@ import { quote, priceForNight, minNightsFor } from './pricing.js';
     'hero.eyebrow': 'Calpe · Costa Blanca · España',
     'hero.title': 'Calma, luz y vistas a la montaña, a seis minutos del mar',
     'hero.lead': 'Una casa decorada con mucho cariño para hasta seis huéspedes, con una soleada terraza, piscina comunitaria y todas las comodidades para unas vacaciones tranquilas.',
-    'fact.guests': 'huéspedes', 'fact.bedrooms': 'dormitorios', 'fact.bathrooms': 'baños', 'fact.rating': 'en Airbnb',
+    'fact.guests': 'huéspedes', 'fact.bedrooms': 'dormitorios', 'fact.bathrooms': 'baños', 'fact.rating': 'en Airbnb', 'fact.booking': 'en Booking.com',
     'hero.cta': 'Ver disponibilidad', 'hero.cta2': 'Todas las fotos',
     'hl1.t': 'Terraza con vistas a la montaña', 'hl1.p': 'Conjunto lounge, guirnaldas de luces y sol todo el día en la primera planta.',
     'hl2.t': 'Piscina', 'hl2.p': 'Solo para residentes del complejo, con tumbonas y sombrilla (de temporada).',
@@ -255,7 +255,7 @@ import { quote, priceForNight, minNightsFor } from './pricing.js';
         <div class="cat"><span>${esc(c[lang] || c.en || c.nl)}</span>
         <span class="bar"><i style="width:${(c.score / p.max) * 100}%"></i></span><b>${num(c.score, 1)}</b></div>`).join('');
       return `<div class="platform">
-        <div class="platform-top"><span class="platform-name">${esc(p.name)}</span>${p.badge ? `<span class="badge">${lang === 'en' ? 'Guest favourite' : lang === 'es' ? 'Favorito entre huéspedes' : esc(p.badge)}</span>` : ''}</div>
+        <div class="platform-top"><span class="platform-name">${esc(p.name)}</span>${p.badge ? `<span class="badge">${esc(typeof p.badge === 'object' ? p.badge[lang] || p.badge.nl : p.badge)}</span>` : ''}</div>
         ${hasScore
           ? `<div class="score">${num(p.score, p.max === 10 ? 1 : 2)} <small>/ ${p.max}${p.count ? ` · ${t().reviews(p.count)}` : ''}</small></div>`
           : `<p style="color:var(--muted);margin:.6rem 0 1rem">${t().noScore}</p>`}
