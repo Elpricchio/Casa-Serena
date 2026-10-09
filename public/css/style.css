@@ -212,41 +212,6 @@ input:focus, select:focus, textarea:focus { outline: 2px solid var(--accent); ou
 @media (max-width: 460px) { .day small { font-size: .56rem; } }
 
 
-/* ---------- Hero: foto van Calpe & de Peñón de Ifach ---------- */
-.hero { position: relative; min-height: min(88vh, 820px); display: flex; align-items: flex-end; overflow: hidden; background: #2b6f99; isolation: isolate; }
-.hero-bg { position: absolute; top: 0; left: -28%; width: 125%; max-width: none; height: 100%; object-fit: cover; object-position: 50% 62%; z-index: -2; filter: saturate(1.25) contrast(1.05) brightness(1.06); animation: heroZoom 18s ease-out both; }
-.hero::after { content: ''; position: absolute; inset: 0; z-index: -1; background:
-  linear-gradient(0deg, rgba(8, 30, 52, .7) 0%, rgba(8, 30, 52, .28) 38%, rgba(8, 30, 52, 0) 62%),
-  linear-gradient(90deg, rgba(8, 30, 52, .38) 0%, rgba(8, 30, 52, .12) 45%, rgba(8, 30, 52, 0) 65%); }
-@keyframes heroZoom { from { transform: scale(1.08); } to { transform: scale(1); } }
-.hero-inner { width: 100%; max-width: 1280px; margin: 0 auto; padding: 5rem clamp(16px, 4vw, 48px) 4.5rem; color: #fff; display: grid; grid-template-columns: 1fr 1.05fr; gap: clamp(1.5rem, 4vw, 4rem); align-items: end; }
-.hero-text { min-width: 0; padding-bottom: 1rem; }
-.hero-badge { display: inline-flex; flex-wrap: wrap; align-items: center; gap: .45rem .6rem; padding: .45rem 1rem; border-radius: 999px; background: rgba(255, 255, 255, .16); border: 1px solid rgba(255, 255, 255, .35); backdrop-filter: blur(8px); font-size: .85rem; color: #fff; margin-bottom: 1.4rem; }
-.hero-badge span { font-weight: 600; }
-.hero-badge i { width: 4px; height: 4px; border-radius: 50%; background: rgba(255, 255, 255, .6); }
-.hero-inner h1 { font-size: clamp(2.7rem, 6.6vw, 5.4rem); font-weight: 300; line-height: 1.02; max-width: 13ch; margin-bottom: .35em; text-wrap: balance; color: #fff; text-shadow: 0 2px 24px rgba(0, 0, 0, .25); }
-.hero-inner h1 em { font-style: italic; color: #ffd9a8; }
-.hero-inner .lead { color: rgba(255, 255, 255, .92); max-width: 36rem; font-size: clamp(1.02rem, 1.6vw, 1.2rem); text-shadow: 0 1px 12px rgba(0, 0, 0, .3); }
-.hero-cta { margin-top: 1.8rem; }
-.btn-light { background: rgba(255, 255, 255, .92); color: #1c2730; border-color: transparent; }
-.hero-credit { position: absolute; right: 12px; bottom: 8px; font-size: .7rem; color: rgba(255, 255, 255, .7); text-decoration: none; }
-.hero-credit:hover { color: #fff; }
-
-.hero-photos { position: relative; z-index: 2; display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; max-width: 1200px; margin: -7rem auto 0; padding: 0 clamp(16px, 4vw, 48px); }
-.hero-photos a { position: relative; display: block; border-radius: var(--radius); overflow: hidden; box-shadow: 0 14px 34px rgba(20, 30, 40, .25); aspect-ratio: 4 / 3; border: 4px solid var(--surface); }
-.hero-photos img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s; }
-.hero-photos a:hover img { transform: scale(1.05); }
-.hero-photos span { position: absolute; left: 0; right: 0; bottom: 0; padding: 1.6rem .8rem .55rem; font-size: .85rem; font-weight: 600; color: #fff; background: linear-gradient(0deg, rgba(0, 0, 0, .55), rgba(0, 0, 0, 0)); }
-.highlights { margin-top: clamp(2.5rem, 5vw, 4rem); }
-@media (max-width: 700px) {
-  .hero { min-height: 680px; }
-  .hero-photos { grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: -5rem; }
-  .hero-photos a { border-width: 3px; }
-  .hero-photos span { font-size: .7rem; padding: 1.2rem .45rem .4rem; }
-  .hp-hide-sm { display: none !important; }
-}
-@media (prefers-reduced-motion: reduce) { .hero-bg { animation: none; } }
-
 /* ---------- Voor wie ---------- */
 .who { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; }
 .who-card { background: var(--surface); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); display: flex; flex-direction: column; }
@@ -264,41 +229,14 @@ input:focus, select:focus, textarea:focus { outline: 2px solid var(--accent); ou
   .who, .who-bike { grid-template-columns: 1fr; }
 }
 
-/* ---------- Collage van huisfoto's in de hero ---------- */
-.collage { position: relative; width: 100%; aspect-ratio: 1 / .95; max-height: 680px; }
-.pc { position: absolute; display: block; background: #fffdf8; padding: 8px 8px 34px; border-radius: 4px; box-shadow: 0 18px 40px rgba(5, 20, 35, .35), 0 2px 6px rgba(5, 20, 35, .2); text-decoration: none; transition: transform .35s ease, box-shadow .35s ease; animation: pcIn .9s cubic-bezier(.2, .8, .2, 1) both; }
-.pc img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; border-radius: 2px; }
-.pc span { position: absolute; left: 0; right: 0; bottom: 7px; text-align: center; font: italic 400 1rem/1 var(--serif); color: #3a3029; }
-.pc1 { left: 9%; top: 5%; width: 58%; z-index: 3; --r: -2.5deg; animation-delay: .15s; }
-.pc2 { right: 0; top: 0; width: 40%; z-index: 2; --r: 5deg; animation-delay: .3s; }
-.pc3 { left: 0; bottom: 0; width: 40%; z-index: 4; --r: -7deg; animation-delay: .45s; }
-.pc4 { right: 2%; bottom: 3%; width: 44%; z-index: 5; --r: 3.5deg; animation-delay: .6s; }
-.pc { transform: rotate(var(--r)); }
-.pc:hover { transform: rotate(0deg) scale(1.04); z-index: 6; box-shadow: 0 26px 56px rgba(5, 20, 35, .45); }
-@keyframes pcIn { from { opacity: 0; transform: translateY(40px) rotate(0deg); } to { opacity: 1; transform: rotate(var(--r)); } }
-@media (max-width: 900px) {
-  .hero { min-height: 0; }
-  .hero-inner { grid-template-columns: 1fr; padding: 3.5rem 16px 3rem; }
-  .hero-text { padding-bottom: 0; }
-  .collage { aspect-ratio: 1 / 1.02; max-width: 560px; width: 100%; justify-self: center; }
-  .pc { padding: 5px 5px 24px; }
-  .pc span { font-size: .78rem; bottom: 5px; }
-  .hero-bg { left: -25%; width: 125%; object-position: 60% 45%; }
-}
-@media (prefers-reduced-motion: reduce) { .pc { animation: none; } }
-
-/* Foto's bij de hoogtepunten */
-.highlights { gap: 0; }
-.hl { padding: 0; display: flex; flex-direction: column; }
-.hl-img { position: relative; margin: 0; overflow: hidden; aspect-ratio: 4 / 3; }
-.hl-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s; }
-.hl:hover .hl-img img { transform: scale(1.05); }
+/* Foto's bij de hoogtepunten (Safari-veilig: aspect-ratio op de img zelf) */
+.hl { padding: 0; display: block; }
+.hl-img { position: relative; margin: 0; }
+.hl-img img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; }
 .hl-body { padding: 1.4rem clamp(16px, 2.4vw, 30px) 1.8rem; }
-.credit { position: absolute; right: 6px; bottom: 4px; font-size: .62rem; color: rgba(255, 255, 255, .85); text-decoration: none; text-shadow: 0 1px 3px rgba(0, 0, 0, .6); }
+.credit { position: absolute; right: 8px; bottom: 6px; font-size: .62rem; color: rgba(255, 255, 255, .9); text-decoration: none; text-shadow: 0 1px 3px rgba(0, 0, 0, .6); }
 .who-photo { position: relative; margin: 0; }
-.who-photo img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
-@media (max-width: 1000px) { .who-bike .who-photo, .who-bike .who-photo img { height: 100%; } }
-
+.who-photo img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; }
 
 /* ================= Ibiza x Japandi, zachter en vrouwelijker ================= */
 body { font-weight: 300; letter-spacing: .01em; color: var(--ink); }
@@ -327,21 +265,10 @@ strong, b { font-weight: 500; }
 .btn-ghost { background: transparent; color: var(--ink); border-color: var(--line); box-shadow: none; }
 .btn-light { background: rgba(255, 255, 255, .92); color: var(--ink); border-color: transparent; box-shadow: none; }
 
-/* Hero */
-.hero-inner h1 { font-weight: 300; font-size: clamp(3rem, 7vw, 6rem); line-height: .98; letter-spacing: -.005em; }
-.hero-inner h1 em { color: #f6d9cc; font-weight: 300; }
-.hero-badge { font-weight: 400; letter-spacing: .04em; }
-.hero::after { background:
-  linear-gradient(0deg, rgba(74, 52, 44, .62) 0%, rgba(74, 52, 44, .22) 40%, rgba(74, 52, 44, 0) 65%),
-  linear-gradient(90deg, rgba(74, 52, 44, .36) 0%, rgba(74, 52, 44, .1) 45%, rgba(74, 52, 44, 0) 65%); }
-.hero { background: #c9b6a8; }
-.pc { border-radius: 14px; padding: 9px 9px 38px; background: #fffaf6; }
-.pc img { border-radius: 9px; }
-.pc span { font-family: var(--serif); font-style: italic; font-size: 1.15rem; color: #7a645a; }
-
 /* Ibiza-bogen bij foto's */
-.floor img, .area img { border-radius: 999px 999px 22px 22px; aspect-ratio: 4 / 4.4; }
-.hl-img { border-radius: 999px 999px 0 0; margin: 1.6rem clamp(16px, 2.4vw, 30px) 0; aspect-ratio: 4 / 4.2; }
+.floor img, .area img { display: block; width: 100%; height: auto; border-radius: 999px 999px 22px 22px; aspect-ratio: 4 / 4.4; object-fit: cover; }
+.hl-img { margin: 1.6rem clamp(16px, 2.4vw, 30px) 0; }
+.hl-img img { aspect-ratio: 4 / 4.4; border-radius: 999px 999px 18px 18px; }
 .who-card > img, .who-photo img { border-radius: 0; }
 .who-card { border-radius: 26px; }
 
@@ -372,3 +299,65 @@ input, select, textarea { border-radius: 14px; background: #fdfaf7; font-weight:
 .host-card h2 { font-size: clamp(2.4rem, 5vw, 3.4rem); font-style: italic; }
 .footer { background: var(--bg-tint); border-top: 0; }
 .footer .brand { font-size: 1.6rem; }
+
+/* ---------- Hero: licht, Ibiza x Japandi ---------- */
+.hero { position: relative; overflow: hidden; background:
+  radial-gradient(60% 70% at 85% 30%, #f6e3d9 0%, rgba(246, 227, 217, 0) 70%),
+  radial-gradient(50% 60% at 10% 90%, #f1ebe1 0%, rgba(241, 235, 225, 0) 70%), var(--bg); }
+.hero-inner { max-width: 1280px; margin: 0 auto; padding: clamp(2.5rem, 6vw, 5rem) clamp(16px, 4vw, 48px) clamp(3rem, 7vw, 6rem); display: grid; grid-template-columns: 1fr 1.05fr; gap: clamp(2rem, 5vw, 5rem); align-items: center; }
+.hero-text { min-width: 0; }
+.hero-text h1 { font-size: clamp(3rem, 6.4vw, 5.8rem); font-weight: 300; line-height: .98; margin-bottom: .4em; color: var(--ink); text-wrap: balance; }
+.hero-text h1 em { color: var(--accent); }
+.hero-text .lead { max-width: 34rem; color: var(--muted); font-size: clamp(1rem, 1.4vw, 1.12rem); }
+.hero-cta { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 2rem; }
+.hero-scores { list-style: none; padding: 0; margin: 2.6rem 0 0; display: flex; flex-wrap: wrap; gap: 1.6rem 2.4rem; }
+.hero-scores li { display: flex; flex-direction: column; }
+.hero-scores strong { font-family: var(--serif); font-size: 2.1rem; font-weight: 400; line-height: 1; color: var(--ink); }
+.hero-scores span { font-size: .7rem; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); margin-top: .35rem; }
+
+.hero-visual { position: relative; min-width: 0; padding: 0 0 12% 14%; }
+.hv-main { position: relative; margin: 0 0 0 auto; width: 82%; }
+.hv-main img { background: #d9e6ec; display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; object-position: 62% 50%; border-radius: 999px 999px 26px 26px; box-shadow: var(--shadow); }
+.hv-photo { position: absolute; display: block; text-decoration: none; background: #fff; padding: 7px 7px 30px; border-radius: 16px; box-shadow: 0 16px 40px rgba(120, 90, 70, .18); transition: transform .4s ease; }
+.hv-photo img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 11px; }
+.hv-photo span { position: absolute; left: 0; right: 0; bottom: 7px; text-align: center; font: italic 400 1.02rem/1 var(--serif); color: #7a645a; }
+.hv-photo:hover { transform: translateY(-4px) rotate(0deg) !important; }
+.hv-1 { left: 0; bottom: 0; width: 50%; transform: rotate(-4deg); z-index: 3; }
+.hv-2 { left: 4%; top: 18%; width: 34%; transform: rotate(3deg); z-index: 2; }
+.hv-3 { right: -2%; bottom: 4%; width: 36%; transform: rotate(4deg); z-index: 3; }
+.hv-2 img { aspect-ratio: 1 / 1; border-radius: 999px 999px 11px 11px; }
+.hv-badge { position: absolute; right: 6%; top: 6%; z-index: 4; display: flex; align-items: center; gap: .6rem; background: rgba(255, 255, 255, .92); backdrop-filter: blur(8px); padding: .65rem 1rem .65rem .7rem; border-radius: 999px; box-shadow: 0 10px 30px rgba(120, 90, 70, .15); font-size: .8rem; color: var(--muted); }
+.hv-badge strong { font-family: var(--serif); font-size: 1.25rem; color: var(--ink); font-weight: 500; }
+.hv-star { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: var(--accent-soft); color: var(--accent); }
+.hv-main .credit { bottom: 10px; right: 50%; transform: translateX(50%); white-space: nowrap; }
+.hv-1, .hv-2, .hv-3, .hv-badge { animation: hvIn .9s cubic-bezier(.2, .8, .2, 1) both; }
+.hv-2 { animation-delay: .15s; } .hv-1 { animation-delay: .3s; } .hv-3 { animation-delay: .45s; } .hv-badge { animation-delay: .6s; }
+@keyframes hvIn { from { opacity: 0; translate: 0 24px; } to { opacity: 1; translate: 0 0; } }
+.highlights { margin-top: 0; }
+
+@media (max-width: 900px) {
+  .hero-inner { grid-template-columns: 1fr; padding-top: 2rem; }
+  .hero-visual { max-width: 520px; width: 100%; margin: 0 auto; }
+  .hero-scores { gap: 1.2rem 1.8rem; margin-top: 2rem; }
+}
+@media (max-width: 460px) {
+  .hero-text h1 { font-size: 2.75rem; }
+  .hero-cta .btn { flex: 1 1 auto; }
+  .hv-photo { padding: 5px 5px 22px; border-radius: 12px; }
+  .hv-photo span { font-size: .78rem; bottom: 5px; }
+  .hv-badge { font-size: .7rem; padding: .45rem .75rem .45rem .5rem; }
+  .hv-badge strong { font-size: 1.05rem; }
+  .hv-star { width: 26px; height: 26px; }
+}
+@media (prefers-reduced-motion: reduce) { .hv-1, .hv-2, .hv-3, .hv-badge { animation: none; } }
+
+/* Hoogtepunten op mobiel: twee kolommen met kleine boogjes */
+@media (max-width: 700px) {
+  .highlights { grid-template-columns: 1fr 1fr !important; }
+  .hl-img { margin: 1.2rem 12px 0; }
+  .hl-img img { aspect-ratio: 1 / 1.1; }
+  .hl-body { padding: .9rem 10px 1.4rem; }
+  .hl h3 { font-size: 1.25rem; }
+  .hl p { font-size: .82rem; }
+  .floor img, .area img { aspect-ratio: 4 / 3.6; }
+}
