@@ -397,12 +397,23 @@ input, select, textarea { border-radius: 14px; background: #fdfaf7; font-weight:
 .hv-photo span { color: #7a645a; text-shadow: none; font-weight: 400; bottom: 9px; }
 @media (max-width: 460px) { .hv-photo { padding: 6px 6px 24px; border-radius: 11px; } .hv-photo span { bottom: 5px; } }
 
-/* Telefoon: "Boek nu" blijft in de vaste balk bovenaan */
-@media (max-width: 600px) {
-  .nav { padding: .6rem 12px; gap: .5rem; background: rgba(251, 248, 244, .97); }
-  .brand { font-size: 1.35rem; }
-  .nav-right { gap: .45rem; }
-  .lang button { padding: .3em .5em; font-size: .7rem; }
-  .nav .btn-small { display: inline-flex; padding: .7em 1.05em; font-size: .66rem; letter-spacing: .12em; white-space: nowrap; }
+/* Telefoon: balk scrolt gewoon mee weg, losse "Boek nu"-knop rechtsonder blijft in beeld */
+.fab { display: none; }
+@media (max-width: 760px) {
+  .nav { position: relative; top: auto; background: transparent; box-shadow: none; padding: .9rem 16px; }
+  .nav .btn-small { display: none; }
+  .brand { font-size: 1.45rem; }
+  html { scroll-padding-top: 12px; }
+  .fab {
+    display: inline-flex; align-items: center; gap: .5em;
+    position: fixed; z-index: 30; right: 16px; bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+    padding: 1em 1.6em; border-radius: 999px;
+    background: var(--accent); color: #fff; text-decoration: none;
+    font: 500 .78rem/1 var(--sans); letter-spacing: .16em; text-transform: uppercase;
+    box-shadow: 0 10px 28px rgba(150, 95, 75, .4), 0 2px 6px rgba(150, 95, 75, .25);
+    transition: opacity .3s, transform .3s;
+  }
+  .fab::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: #fff; opacity: .9; }
+  .fab:active { transform: scale(.96); }
+  .fab.is-hidden { opacity: 0; transform: translateY(20px); pointer-events: none; }
 }
-@media (max-width: 360px) { .brand { font-size: 1.15rem; } .lang button { padding: .3em .4em; } }

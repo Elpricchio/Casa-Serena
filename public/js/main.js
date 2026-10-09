@@ -473,5 +473,12 @@ import { quote, priceForNight, minNightsFor } from './pricing.js';
     }
   });
 
+  /* Losse 'Boek nu'-knop verbergen zodra het boekingsformulier in beeld is */
+  const fab = document.querySelector('.fab');
+  const bookSec = document.getElementById('boeken');
+  if (fab && bookSec && 'IntersectionObserver' in window) {
+    new IntersectionObserver(([e]) => fab.classList.toggle('is-hidden', e.isIntersecting), { threshold: 0.15 }).observe(bookSec);
+  }
+
   applyLang();
 })();
