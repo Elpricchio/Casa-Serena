@@ -1,34 +1,23 @@
 :root {
-  --bg: #f7f2eb;
-  --bg-tint: #efe6da;
-  --surface: #fffdf9;
-  --ink: #2b2622;
-  --muted: #74685d;
-  --line: #e2d6c7;
-  --accent: #b5643c;
+  /* Ibiza x Japandi: kalkwit, linnen, zand, blush en zachte klei */
+  --bg: #fbf8f4;
+  --bg-tint: #f3ece4;
+  --surface: #ffffff;
+  --ink: #4a3f3a;
+  --muted: #7a6b63;
+  --line: #ebe1d7;
+  --accent: #c08a76;
   --accent-ink: #ffffff;
-  --accent-soft: #f3dfd1;
-  --olive: #6f7a52;
-  --busy: #e6ddd2;
-  --busy-ink: #a89a8b;
-  --radius: 14px;
-  --shadow: 0 1px 2px rgba(60, 40, 20, .06), 0 8px 24px rgba(60, 40, 20, .07);
-  --serif: 'Fraunces', Georgia, serif;
-  --sans: 'DM Sans', system-ui, -apple-system, Segoe UI, sans-serif;
+  --accent-soft: #f6e6de;
+  --olive: #a3a08a;
+  --blush: #e9cfc4;
+  --busy: #efe7df;
+  --busy-ink: #b9aca2;
+  --radius: 22px;
+  --shadow: 0 1px 2px rgba(120, 90, 70, .05), 0 14px 40px rgba(120, 90, 70, .08);
+  --serif: 'Cormorant Garamond', 'Cormorant', Georgia, serif;
+  --sans: 'Jost', 'Avenir Next', system-ui, -apple-system, Segoe UI, sans-serif;
   color-scheme: light;
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #1d1916; --bg-tint: #25201c; --surface: #2a2420; --ink: #f1e9df; --muted: #b3a597;
-    --line: #3d342d; --accent: #d98a5f; --accent-ink: #1d1916; --accent-soft: #4a3326; --olive: #a5b07f;
-    --busy: #352d27; --busy-ink: #75685c; --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.25);
-    color-scheme: dark;
-  }
-}
-:root[data-theme="dark"] {
-  --bg: #1d1916; --bg-tint: #25201c; --surface: #2a2420; --ink: #f1e9df; --muted: #b3a597;
-  --line: #3d342d; --accent: #d98a5f; --accent-ink: #1d1916; --accent-soft: #4a3326; --olive: #a5b07f;
-  --busy: #352d27; --busy-ink: #75685c; color-scheme: dark;
 }
 
 * { box-sizing: border-box; }
@@ -279,7 +268,7 @@ input:focus, select:focus, textarea:focus { outline: 2px solid var(--accent); ou
 .collage { position: relative; width: 100%; aspect-ratio: 1 / .95; max-height: 680px; }
 .pc { position: absolute; display: block; background: #fffdf8; padding: 8px 8px 34px; border-radius: 4px; box-shadow: 0 18px 40px rgba(5, 20, 35, .35), 0 2px 6px rgba(5, 20, 35, .2); text-decoration: none; transition: transform .35s ease, box-shadow .35s ease; animation: pcIn .9s cubic-bezier(.2, .8, .2, 1) both; }
 .pc img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; border-radius: 2px; }
-.pc span { position: absolute; left: 0; right: 0; bottom: 7px; text-align: center; font: italic 400 1rem/1 'Fraunces', Georgia, serif; color: #3a3029; }
+.pc span { position: absolute; left: 0; right: 0; bottom: 7px; text-align: center; font: italic 400 1rem/1 var(--serif); color: #3a3029; }
 .pc1 { left: 9%; top: 5%; width: 58%; z-index: 3; --r: -2.5deg; animation-delay: .15s; }
 .pc2 { right: 0; top: 0; width: 40%; z-index: 2; --r: 5deg; animation-delay: .3s; }
 .pc3 { left: 0; bottom: 0; width: 40%; z-index: 4; --r: -7deg; animation-delay: .45s; }
@@ -309,3 +298,77 @@ input:focus, select:focus, textarea:focus { outline: 2px solid var(--accent); ou
 .who-photo { position: relative; margin: 0; }
 .who-photo img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
 @media (max-width: 1000px) { .who-bike .who-photo, .who-bike .who-photo img { height: 100%; } }
+
+
+/* ================= Ibiza x Japandi, zachter en vrouwelijker ================= */
+body { font-weight: 300; letter-spacing: .01em; color: var(--ink); }
+h1, h2, h3 { font-family: var(--serif); font-weight: 400; letter-spacing: 0; }
+h2 { font-size: clamp(2.1rem, 4vw, 3.2rem); font-weight: 300; }
+h3 { font-size: 1.5rem; font-weight: 500; }
+h2 em, h3 em { font-style: italic; }
+.eyebrow { font-family: var(--sans); font-weight: 400; letter-spacing: .32em; font-size: .7rem; color: var(--accent); }
+.lead { font-weight: 300; }
+strong, b { font-weight: 500; }
+
+/* Navigatie: luchtig, met kleine letters */
+.nav { background: rgba(251, 248, 244, .86); border-bottom-color: transparent; box-shadow: 0 1px 0 var(--line); }
+.brand { font-size: 1.7rem; font-weight: 400; letter-spacing: .02em; }
+.brand em { color: var(--accent); }
+.nav-links a { font-size: .8rem; letter-spacing: .18em; text-transform: uppercase; font-weight: 400; color: var(--muted); }
+.nav-links a:hover { color: var(--accent); }
+.lang { border-color: var(--line); }
+.lang button { font-weight: 400; letter-spacing: .08em; }
+.lang button[aria-pressed="true"] { background: var(--accent); color: #fff; }
+
+/* Knoppen: zacht en rond */
+.btn { font-family: var(--sans); font-weight: 400; letter-spacing: .14em; text-transform: uppercase; font-size: .78rem; padding: 1.05em 2em; background: var(--accent); border-color: var(--accent); box-shadow: 0 8px 22px rgba(192, 138, 118, .28); }
+.btn:hover { filter: none; background: #b07a66; }
+.btn-small { padding: .8em 1.5em; font-size: .72rem; }
+.btn-ghost { background: transparent; color: var(--ink); border-color: var(--line); box-shadow: none; }
+.btn-light { background: rgba(255, 255, 255, .92); color: var(--ink); border-color: transparent; box-shadow: none; }
+
+/* Hero */
+.hero-inner h1 { font-weight: 300; font-size: clamp(3rem, 7vw, 6rem); line-height: .98; letter-spacing: -.005em; }
+.hero-inner h1 em { color: #f6d9cc; font-weight: 300; }
+.hero-badge { font-weight: 400; letter-spacing: .04em; }
+.hero::after { background:
+  linear-gradient(0deg, rgba(74, 52, 44, .62) 0%, rgba(74, 52, 44, .22) 40%, rgba(74, 52, 44, 0) 65%),
+  linear-gradient(90deg, rgba(74, 52, 44, .36) 0%, rgba(74, 52, 44, .1) 45%, rgba(74, 52, 44, 0) 65%); }
+.hero { background: #c9b6a8; }
+.pc { border-radius: 14px; padding: 9px 9px 38px; background: #fffaf6; }
+.pc img { border-radius: 9px; }
+.pc span { font-family: var(--serif); font-style: italic; font-size: 1.15rem; color: #7a645a; }
+
+/* Ibiza-bogen bij foto's */
+.floor img, .area img { border-radius: 999px 999px 22px 22px; aspect-ratio: 4 / 4.4; }
+.hl-img { border-radius: 999px 999px 0 0; margin: 1.6rem clamp(16px, 2.4vw, 30px) 0; aspect-ratio: 4 / 4.2; }
+.who-card > img, .who-photo img { border-radius: 0; }
+.who-card { border-radius: 26px; }
+
+/* Hoogtepunten: luchtig, zonder harde lijnen */
+.highlights { background: transparent; border: 0; gap: 0; }
+.hl { background: transparent; }
+.hl-body { text-align: center; }
+.hl h3 { font-size: 1.6rem; }
+
+/* Secties en kaarten */
+.section-tint { background: var(--bg-tint); }
+.section-head { text-align: center; max-width: 760px; margin-left: auto; margin-right: auto; }
+.section-head .lead { margin-left: auto; margin-right: auto; }
+.platform, .review, .cal-wrap, .request { border-radius: var(--radius); box-shadow: var(--shadow); }
+.score { font-weight: 300; }
+.bar i { background: var(--accent); }
+.badge { background: var(--accent-soft); color: var(--accent); font-weight: 400; letter-spacing: .04em; }
+.ticks li::before { background: var(--blush); width: .6em; height: .6em; }
+.amenities h3 { font-size: 1.45rem; border-bottom-color: var(--line); }
+.gallery button { border-radius: 16px; }
+.month h3 { font-size: 1.45rem; font-weight: 400; }
+.day { border-radius: 50%; font-weight: 400; }
+.day.in-range { border-radius: 0; background: var(--accent-soft); }
+.day.busy { background: var(--busy); }
+input, select, textarea { border-radius: 14px; background: #fdfaf7; font-weight: 300; }
+.lbl, label > span { letter-spacing: .14em; font-weight: 400; }
+.pb-total { font-weight: 500; }
+.host-card h2 { font-size: clamp(2.4rem, 5vw, 3.4rem); font-style: italic; }
+.footer { background: var(--bg-tint); border-top: 0; }
+.footer .brand { font-size: 1.6rem; }
