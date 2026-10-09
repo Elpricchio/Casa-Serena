@@ -361,3 +361,12 @@ input, select, textarea { border-radius: 14px; background: #fdfaf7; font-weight:
   .hl p { font-size: .82rem; }
   .floor img, .area img { aspect-ratio: 4 / 3.6; }
 }
+
+/* Mobiel: eerst de foto's, daarna de tekst */
+@media (max-width: 900px) {
+  .hero-visual { order: -1; max-width: 440px; padding: 0 0 14% 10%; }
+  .hero-inner { gap: 1.6rem; padding-top: 1.2rem; }
+  .hero-scores { display: grid; grid-template-columns: repeat(4, auto); justify-content: space-between; gap: 1rem; }
+  .hero-scores strong { font-size: 1.7rem; }
+  .hero-scores span { font-size: .6rem; letter-spacing: .14em; }
+}
