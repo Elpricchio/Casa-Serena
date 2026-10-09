@@ -25,7 +25,7 @@ import { quote, priceForNight, minNightsFor } from './pricing.js';
     'hl4.t': 'Self check-in', 'hl4.p': 'Arrive when it suits you with a key box. Free parking at the door.',
     'house.eyebrow': 'The house', 'house.title': 'Two floors and a sunny roof terrace',
     'house.lead': 'Rattan, linen, wood and warm earthy tones: Casa Serena was furnished with care so you can truly unwind. There is space to be together, and just as much space to retreat.',
-    'f1.t': 'Ground floor', 'f1.p': 'Cosy living room with fireplace, TV and a balcony with a view. A round dining table for four, a modern kitchen and two bedrooms with a bathroom.',
+    'f1.t': 'Ground floor', 'f1.p': 'Cosy living room with fireplace, TV and a balcony with a view. A round dining table for four, a modern kitchen and two bedrooms with a bathroom. Outside is the garden with several seating areas, sun loungers and a barbecue.',
     'f1.l1': 'Bedroom with double bed', 'f1.l2': 'Bedroom with two single beds', 'f1.l3': 'Bathroom',
     'f2.t': 'Roof terrace', 'f2.p': 'On top of the house is a roof terrace with bar stools and wide views over the mountains around Calpe. The place for a glass of wine at sunset.',
     'f3.t': 'Lower floor', 'f3.p': 'A space of its own: the large bedroom with king-size bed and ceiling fan, a luxurious bathroom with walk-in rain shower and a games room with sofa, TV, PlayStation and board games.',
@@ -67,6 +67,8 @@ import { quote, priceForNight, minNightsFor } from './pricing.js';
     'strip.3': 'Bright living room',
     'strip.4': 'King-size bedroom',
     'am.g1.6': 'Secure indoor bike storage',
+    'f1.l4': 'Garden with seating areas, sun loungers and barbecue',
+    'am.g1.7': 'Garden with barbecue',
   };
   const ES = {
     'nav.house': 'La casa', 'nav.photos': 'Fotos', 'nav.reviews': 'Opiniones', 'nav.area': 'Entorno', 'nav.book': 'Reserva ahora',
@@ -81,7 +83,7 @@ import { quote, priceForNight, minNightsFor } from './pricing.js';
     'hl4.t': 'Entrada autónoma', 'hl4.p': 'Llega a la hora que quieras gracias a la caja de llaves. Aparcamiento gratuito en la puerta.',
     'house.eyebrow': 'La casa', 'house.title': 'Dos plantas y una terraza soleada en la azotea',
     'house.lead': 'Ratán, lino, madera y cálidos tonos tierra: Casa Serena está decorada con mimo para que de verdad puedas desconectar. Hay espacio para estar juntos y también para retirarse un rato.',
-    'f1.t': 'Planta baja', 'f1.p': 'Acogedor salón con chimenea decorativa, TV y balcón con vistas. Mesa redonda para cuatro, una cocina moderna y dos dormitorios con baño.',
+    'f1.t': 'Planta baja', 'f1.p': 'Acogedor salón con chimenea decorativa, TV y balcón con vistas. Mesa redonda para cuatro, una cocina moderna y dos dormitorios con baño. Fuera está el jardín con varios rincones para sentarse, tumbonas y barbacoa.',
     'f1.l1': 'Dormitorio con cama de matrimonio', 'f1.l2': 'Dormitorio con dos camas individuales', 'f1.l3': 'Baño',
     'f2.t': 'Terraza en la azotea', 'f2.p': 'En lo alto de la casa hay una terraza con taburetes y amplias vistas a las montañas de Calpe. El lugar perfecto para una copa de vino al atardecer.',
     'f3.t': 'Planta inferior', 'f3.p': 'Un espacio propio para relajarse: el dormitorio principal con cama king size y ventilador de techo, un baño de lujo con ducha de lluvia a ras de suelo y una sala de juegos con sofá, TV, PlayStation y juegos de mesa.',
@@ -123,6 +125,8 @@ import { quote, priceForNight, minNightsFor } from './pricing.js';
     'strip.3': 'Salón luminoso',
     'strip.4': 'Dormitorio king size',
     'am.g1.6': 'Guardabicis seguro dentro de la casa',
+    'f1.l4': 'Jardín con rincones para sentarse, tumbonas y barbacoa',
+    'am.g1.7': 'Jardín con barbacoa',
   };
   const T = {
     nl: {
