@@ -134,7 +134,8 @@ export async function onRequestPost({ request, env }) {
       await sendMail(env, {
         from,
         to: [email],
-        reply_to: env.OWNER_EMAIL,
+        // Antwoorden van de gast gaan naar het eigen adres (boeking@…), dat via Cloudflare Email Routing doorstuurt
+        reply_to: (/<([^>]+)>/.exec(from) || [, from])[1],
         subject: msgs.subject,
         text: msgs.text,
       }).catch(() => {});
