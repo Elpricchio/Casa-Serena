@@ -109,3 +109,17 @@ npm install -g wrangler
 cp .dev.vars.example .dev.vars   # vul je eigen waarden in
 wrangler pages dev public
 ```
+
+## Talen (NL / EN / ES)
+
+Elke taal heeft een eigen adres, zodat Google ze alle drie kan vinden:
+`/` (Nederlands), `/en/` (Engels) en `/es/` (Spaans).
+
+- Nederlandse teksten staan in `public/index.html`.
+- Engelse en Spaanse teksten staan in `public/js/i18n.js`.
+- Na elke tekstwijziging maak je de Engelse en Spaanse pagina opnieuw aan:
+
+```
+npm install        # eenmalig
+npm run build:lang # schrijft public/en/index.html en public/es/index.html
+```

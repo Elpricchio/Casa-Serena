@@ -1,0 +1,10 @@
+{
+  "devDependencies": {
+    "linkedom": "^0.18.13"
+  },
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:lang": "node tools/build-languages.mjs"
+  }
+}
