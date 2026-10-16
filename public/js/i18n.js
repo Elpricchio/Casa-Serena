@@ -1,7 +1,7 @@
 /* Vertalingen van de vaste teksten op de site (Engels en Spaans). Nederlands staat in index.html. */
 export const EN = {
   'nav.house': 'The house', 'nav.photos': 'Photos', 'nav.reviews': 'Reviews', 'nav.area': 'Area', 'nav.book': 'Book now',
-  'hero.eyebrow': 'Calpe · Costa Blanca · Spain',
+  'hero.eyebrow': 'Casa Serena · Calpe · Costa Blanca',
   'hero.title': 'Your sunny home on the <em>Costa Blanca</em>',
   'hero.lead': 'Wake up to mountain views, have breakfast on your own sun terrace and be on the beach below the Peñón de Ifach within six minutes. Casa Serena has been lovingly furnished for six guests, with a pool, three bedrooms and two bathrooms. Every room has its own air conditioning, so the house stays pleasantly cool in summer and comfortably warm in winter.',
   'fact.guests': 'guests', 'fact.bedrooms': 'bedrooms', 'fact.bathrooms': 'bathrooms', 'fact.rating': 'on Airbnb', 'fact.booking': 'on Booking.com',
@@ -65,7 +65,7 @@ export const EN = {
 };
 export const ES = {
   'nav.house': 'La casa', 'nav.photos': 'Fotos', 'nav.reviews': 'Opiniones', 'nav.area': 'Entorno', 'nav.book': 'Reserva ahora',
-  'hero.eyebrow': 'Calpe · Costa Blanca · España',
+  'hero.eyebrow': 'Casa Serena · Calpe · Costa Blanca',
   'hero.title': 'Tu hogar soleado en la <em>Costa Blanca</em>',
   'hero.lead': 'Despierta con vistas a la montaña, desayuna en tu propia terraza al sol y en seis minutos estarás en la playa a los pies del Peñón de Ifach. Casa Serena está decorada con mucho cariño para seis huéspedes, con piscina, tres dormitorios y dos baños. Cada estancia tiene su propio aire acondicionado, para que la casa esté fresca en verano y agradablemente cálida en invierno.',
   'fact.guests': 'huéspedes', 'fact.bedrooms': 'dormitorios', 'fact.bathrooms': 'baños', 'fact.rating': 'en Airbnb', 'fact.booking': 'en Booking.com',
