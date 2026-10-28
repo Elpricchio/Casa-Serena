@@ -48,7 +48,7 @@ const ATTRS = {
   'Zwembad met bergzicht': ['Pool with mountain views', 'Piscina con vistas a la montaña'],
   'Hoogtepunten': ['Highlights', 'Lo más destacado'],
   'Zwembad met uitzicht op de bergen': ['Pool with mountain views', 'Piscina con vistas a la montaña'],
-  'Helder water en de Peñón de Ifach in Calpe': ['Clear water and the Peñón de Ifach in Calpe', 'Aguas cristalinas y el Peñón de Ifach en Calpe'],
+  'Baai met turquoise water en kliffen aan de Costa Blanca': ['Cove with turquoise water and cliffs on the Costa Blanca', 'Cala con aguas turquesas y acantilados en la Costa Blanca'],
   'Opgerolde handdoeken klaar voor aankomst': ['Rolled towels ready for your arrival', 'Toallas enrolladas listas para tu llegada'],
   'Woonkamer met eethoek en doorkijk naar de keuken': ['Living room with dining area and view into the kitchen', 'Salón con comedor y vista a la cocina'],
   'Dakterras met barkrukken en zonsondergang boven de bergen': ['Roof terrace with bar stools and sunset over the mountains', 'Azotea con taburetes y puesta de sol sobre las montañas'],
