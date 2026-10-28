@@ -41,6 +41,7 @@ const PAGES = {
 
 // Alt-teksten en knoplabels (voor Google Afbeeldingen en schermlezers), op basis van de Nederlandse tekst
 const ATTRS = {
+  'Uitzicht over de baai van Calpe en de Peñón de Ifach': ['View over the bay of Calpe and the Peñón de Ifach', 'Vista sobre la bahía de Calpe y el Peñón de Ifach'],
   'Hoofdmenu': ['Main menu', 'Menú principal'],
   'De Peñón de Ifach en de Middellandse Zee bij Calpe': ['The Peñón de Ifach and the Mediterranean Sea at Calpe', 'El Peñón de Ifach y el mar Mediterráneo en Calpe'],
   'Zonnig terras met loungeset': ['Sunny terrace with lounge set', 'Terraza soleada con sofás exteriores'],
